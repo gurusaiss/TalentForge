@@ -99,7 +99,7 @@ export default function DailyBrief() {
   const [collapsed, setCollapsed] = useState(false);
   const [animate, setAnimate]     = useState(false);
 
-  const userId = localStorage.getItem('skillforge:userId');
+  const userId = localStorage.getItem('talentforge:userId');
 
   useEffect(() => {
     if (!userId) { setLoading(false); return; }

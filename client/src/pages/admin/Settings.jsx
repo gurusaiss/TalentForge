@@ -74,7 +74,7 @@ export default function Settings() {
                 <div className="space-y-4">
                   <div>
                     <label className="block text-xs font-bold text-slate-400 uppercase mb-1.5">Platform Name</label>
-                    <input type="text" defaultValue="SkillForge AI" className="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white text-sm" />
+                    <input type="text" defaultValue="TalentForge" className="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white text-sm" />
                   </div>
                   <div>
                     <label className="block text-xs font-bold text-slate-400 uppercase mb-1.5">Tagline</label>
@@ -82,7 +82,7 @@ export default function Settings() {
                   </div>
                   <div>
                     <label className="block text-xs font-bold text-slate-400 uppercase mb-1.5">Support Email</label>
-                    <input type="email" defaultValue="support@skillforge.ai" className="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white text-sm" />
+                    <input type="email" defaultValue="support@talentforge.ai" className="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white text-sm" />
                   </div>
                   <div>
                     <label className="block text-xs font-bold text-slate-400 uppercase mb-1.5">Default User Role</label>
@@ -245,7 +245,7 @@ export default function Settings() {
             <div className="space-y-5">
               <div className="rounded-2xl border border-slate-700/50 bg-slate-800/30 p-6">
                 <h2 className="text-lg font-black text-white mb-1">Integrations</h2>
-                <p className="text-sm text-slate-400 mb-6">Connect SkillForge to your existing tools and services.</p>
+                <p className="text-sm text-slate-400 mb-6">Connect TalentForge to your existing tools and services.</p>
 
                 {[
                   { name: 'Supabase',          status: 'Connected',                                        color: 'text-emerald-400', desc: 'Primary database & auth provider',            icon: '🗄️' },
@@ -329,11 +329,11 @@ export default function Settings() {
                     </thead>
                     <tbody>
                       {[
-                        { time: '2026-05-19 01:42', actor: 'admin@skillforge.ai', action: 'ROLE_CHANGED',   detail: 'user-008 → manager' },
-                        { time: '2026-05-18 16:10', actor: 'admin@skillforge.ai', action: 'MODULE_CREATED', detail: '"React Advanced"' },
-                        { time: '2026-05-18 12:05', actor: 'manager@skillforge.ai', action: 'ASSIGNMENT_CREATED', detail: 'Mod-012 → emp-045' },
+                        { time: '2026-05-19 01:42', actor: 'admin@talentforge.ai', action: 'ROLE_CHANGED',   detail: 'user-008 → manager' },
+                        { time: '2026-05-18 16:10', actor: 'admin@talentforge.ai', action: 'MODULE_CREATED', detail: '"React Advanced"' },
+                        { time: '2026-05-18 12:05', actor: 'manager@talentforge.ai', action: 'ASSIGNMENT_CREATED', detail: 'Mod-012 → emp-045' },
                         { time: '2026-05-17 09:30', actor: 'system', action: 'AUTO_SYNC', detail: 'Progress batch reconcile' },
-                        { time: '2026-05-16 22:15', actor: 'admin@skillforge.ai', action: 'USER_DELETED', detail: 'user-012 self-deletion blocked' },
+                        { time: '2026-05-16 22:15', actor: 'admin@talentforge.ai', action: 'USER_DELETED', detail: 'user-012 self-deletion blocked' },
                       ].map((row, i) => (
                         <tr key={i} className="border-b border-slate-700/30">
                           <td className="py-2.5 px-3 text-slate-500 text-xs">{row.time}</td>

@@ -90,7 +90,7 @@ Be genuine, specific, and encouraging without being generic. Reference actual sc
         ? llmReport.demonstratedSkills
         : completedSkills.map((skill) => skill.name),
       narrative: llmReport?.narrative
-        || `SkillForge tracked ${session.sessions.length} practice sessions and found steady growth toward ${session.goal.domainLabel}. The learner performed best when responses were detailed, reasoned, and directly tied to the evaluation criteria.`,
+        || `TalentForge tracked ${session.sessions.length} practice sessions and found steady growth toward ${session.goal.domainLabel}. The learner performed best when responses were detailed, reasoned, and directly tied to the evaluation criteria.`,
       coachSummary: llmReport?.coachSummary
         || 'Continue focusing on weak areas and build consistency through repeated practice.',
       capabilityStatement: llmReport?.capabilityStatement || null,

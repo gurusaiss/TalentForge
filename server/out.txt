@@ -1,0 +1,12 @@
+[AutonomousScheduler] Running autonomous cycle...
+[AutonomousScheduler] Background agent started — running every 6 hours
+
+╔════════════════════════════════════════╗
+║       TalentForge Server               ║
+╠════════════════════════════════════════╣
+║  Port:   3099                            ║
+║  Gemini: ❌ OFF                          ║
+║  Groq:   ❌ OFF                          ║
+║  DB:     📁 File-based              ║
+║  Env:    development                      ║
+╚════════════════════════════════════════╝

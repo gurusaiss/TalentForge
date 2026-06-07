@@ -104,15 +104,15 @@ export default function Diagnostic() {
   const [animating, setAnimating] = useState(false);
 
   // Derive data from location/localStorage (not hooks, so safe)
-  const stored = localStorage.getItem('skillforge:goalResponse');
+  const stored = localStorage.getItem('talentforge:goalResponse');
   const initialData = location.state || (stored ? JSON.parse(stored) : null);
 
   // Exactly 5 questions
   const allQuestions = (initialData?.diagnosticQuestions || []).slice(0, 5);
   const questions = allQuestions.length > 0 ? allQuestions : [];
-  const userId = initialData?.userId || localStorage.getItem('skillforge:userId');
+  const userId = initialData?.userId || localStorage.getItem('talentforge:userId');
   const profilingData = location.state?.profilingData
-    || (() => { try { return JSON.parse(localStorage.getItem('skillforge:profiling') || 'null'); } catch { return null; } })();
+    || (() => { try { return JSON.parse(localStorage.getItem('talentforge:profiling') || 'null'); } catch { return null; } })();
 
   // ── Guard (after all hooks) ───────────────────────────────────────────────
   if (!initialData || !userId) {
@@ -182,7 +182,7 @@ export default function Diagnostic() {
         new Promise(res => setTimeout(res, 2800)),
       ]);
 
-      localStorage.setItem('skillforge:diagnostic', JSON.stringify(data));
+      localStorage.setItem('talentforge:diagnostic', JSON.stringify(data));
       navigate('/dashboard');
     } catch (err) {
       setError(err.message);

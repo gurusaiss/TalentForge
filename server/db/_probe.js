@@ -12,7 +12,7 @@ const c = createClient(process.env.SUPABASE_URL, secret, {auth:{persistSession:f
 
   // Direct raw PATCH
   const body = JSON.stringify([{
-    user_id:'usr_admin_001', email:'admin@skillforge.ai', name:'System Admin',
+    user_id:'usr_admin_001', email:'admin@talentforge.ai', name:'System Admin',
     role:'admin', learning_uuid:randomUUID(), password_hash:'x', email_verified:true,
     created_at:new Date().toISOString(), updated_at:new Date().toISOString(),
   }]);

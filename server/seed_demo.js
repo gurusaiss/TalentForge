@@ -1,7 +1,7 @@
 import SmartAgent from './agent/SmartAgent.js';
 
 const agent = new SmartAgent();
-const userId = 'demo_skillforge_2024';
+const userId = 'demo_talentforge_2024';
 const goalText = 'I want to become a backend Python developer';
 const scores = [42, 48, 55, 61, 38, 45, 52, 60, 44, 58, 65, 50, 63, 72];
 

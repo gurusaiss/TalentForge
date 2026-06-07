@@ -119,7 +119,7 @@ export default function GoalRefinement({ goal, skills = [], stats = {} }) {
     setApplied(true);
     // Persist to localStorage so Dashboard can pick it up if needed
     try {
-      localStorage.setItem('skillforge:refinedGoal', ref.text);
+      localStorage.setItem('talentforge:refinedGoal', ref.text);
     } catch {}
     setTimeout(() => setApplied(false), 3000);
   };

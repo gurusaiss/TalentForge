@@ -1,8 +1,8 @@
-// Feature: skillforge-ai, Property 7: Diagnostic scores are bounded
-// Feature: skillforge-ai, Property 8: Multiple-choice scoring is binary
-// Feature: skillforge-ai, Property 9: Open-ended scoring is proportional and capped
-// Feature: skillforge-ai, Property 10: Evaluator always produces feedback
-// Feature: skillforge-ai, Property 13: Session evaluation output is complete and bounded
+// Feature: talentforge-ai, Property 7: Diagnostic scores are bounded
+// Feature: talentforge-ai, Property 8: Multiple-choice scoring is binary
+// Feature: talentforge-ai, Property 9: Open-ended scoring is proportional and capped
+// Feature: talentforge-ai, Property 10: Evaluator always produces feedback
+// Feature: talentforge-ai, Property 13: Session evaluation output is complete and bounded
 
 import { describe, it, expect } from 'vitest';
 import fc from 'fast-check';

@@ -42,7 +42,7 @@ router.get('/run', async (req, res) => {
   const delay = (ms) => new Promise(r => setTimeout(r, ms));
 
   try {
-    send('start', { message: 'SkillForge Autonomous Agent System activating...', timestamp: new Date().toISOString() });
+    send('start', { message: 'TalentForge Autonomous Agent System activating...', timestamp: new Date().toISOString() });
     await delay(400);
 
     // Step 1: GoalAgent

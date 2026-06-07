@@ -815,8 +815,8 @@ function ReflectionJournal({ skillName, score, onComplete }) {
 
   const handleSubmit = () => {
     const entry = { date: new Date().toISOString(), skillName, score, reflection, keyTakeaway };
-    const existing = JSON.parse(localStorage.getItem('skillforge:journal') || '[]');
-    localStorage.setItem('skillforge:journal', JSON.stringify([...existing, entry].slice(-50)));
+    const existing = JSON.parse(localStorage.getItem('talentforge:journal') || '[]');
+    localStorage.setItem('talentforge:journal', JSON.stringify([...existing, entry].slice(-50)));
     setSubmitted(true);
     setTimeout(onComplete, 1200);
   };
@@ -886,7 +886,7 @@ function ReflectionJournal({ skillName, score, onComplete }) {
 export default function Session() {
   const { day } = useParams();
   const navigate = useNavigate();
-  const userId = localStorage.getItem('skillforge:userId');
+  const userId = localStorage.getItem('talentforge:userId');
 
   const [data, setData] = useState(null);
   // phases: loading | confidence | learn | warmup | quiz-loading | quiz | quiz-result | notes-loading | notes | journal | error
@@ -894,7 +894,7 @@ export default function Session() {
   const [error, setError] = useState('');
   const [confidenceLevel, setConfidenceLevel] = useState(null);
   const [historicalCalibrations] = useState(() => {
-    try { return JSON.parse(localStorage.getItem('skillforge:calibrations') || '[]'); } catch { return []; }
+    try { return JSON.parse(localStorage.getItem('talentforge:calibrations') || '[]'); } catch { return []; }
   });
 
   // Quiz & notes state
@@ -1086,7 +1086,7 @@ export default function Session() {
         if (confidenceLevel) {
           const predicted = confidenceLevel * 20;
           const cals = [...historicalCalibrations, { predicted, actual: result.score, day: Number(day) }];
-          localStorage.setItem('skillforge:calibrations', JSON.stringify(cals.slice(-20)));
+          localStorage.setItem('talentforge:calibrations', JSON.stringify(cals.slice(-20)));
         }
 
         try {

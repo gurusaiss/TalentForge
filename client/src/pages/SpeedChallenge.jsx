@@ -151,7 +151,7 @@ function ResultScreen({ correct, totalXP, questions, answers, onRetry, onCertifi
   const navigate = useNavigate();
 
   const handleShare = () => {
-    const msg = `I scored ${correct}/10 (Grade ${grade}) in the SkillForge AI Speed Challenge! ⚡ ${totalXP} XP earned!`;
+    const msg = `I scored ${correct}/10 (Grade ${grade}) in the TalentForge Speed Challenge! ⚡ ${totalXP} XP earned!`;
     if (navigator.clipboard) {
       navigator.clipboard.writeText(msg).then(() => alert('Copied! Share it anywhere 🎉'));
     }

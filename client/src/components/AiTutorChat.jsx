@@ -16,7 +16,7 @@ function getWelcomeMessage(pathname) {
   if (pathname.startsWith('/dashboard') || pathname.endsWith('/dashboard')) {
     return "Welcome back! Ask me about your learning plan, skill gaps, or what to focus on next.";
   }
-  return "Hi! I'm SkillForge's AI Tutor. Ask me anything about learning, skills, or career growth!";
+  return "Hi! I'm TalentForge's AI Tutor. Ask me anything about learning, skills, or career growth!";
 }
 
 function TypingIndicator() {

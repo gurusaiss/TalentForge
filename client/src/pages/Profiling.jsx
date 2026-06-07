@@ -65,7 +65,7 @@ export default function Profiling() {
   const location = useLocation();
 
   // Goal data from Landing
-  const stored = localStorage.getItem('skillforge:goalResponse');
+  const stored = localStorage.getItem('talentforge:goalResponse');
   const goalData = location.state || (stored ? JSON.parse(stored) : null);
   const goalText = goalData?.skillTree?.profile?.rawGoal || '';
   const domainName = goalData?.skillTree?.domainName || '';
@@ -110,7 +110,7 @@ export default function Profiling() {
   const handleContinue = () => {
     // Save profiling data
     const profilingData = answers;
-    localStorage.setItem('skillforge:profiling', JSON.stringify(profilingData));
+    localStorage.setItem('talentforge:profiling', JSON.stringify(profilingData));
 
     // Navigate to diagnostic with goal data + profiling
     navigate('/diagnostic', {

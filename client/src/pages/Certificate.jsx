@@ -23,7 +23,7 @@ export default function Certificate() {
   };
 
   const handleShare = () => {
-    const msg = `I just completed ${skill} with ${score}% mastery on SkillForge AI! 🎓`;
+    const msg = `I just completed ${skill} with ${score}% mastery on TalentForge! 🎓`;
     if (navigator.clipboard) {
       navigator.clipboard.writeText(msg).then(() => {
         alert('Copied to clipboard! Share it anywhere 🎉');
@@ -198,7 +198,7 @@ export default function Certificate() {
 
           {/* Footer */}
           <p className="text-xs text-slate-400 tracking-widest uppercase font-semibold">
-            Powered by SkillForge AI • 9 Specialized AI Agents
+            Powered by TalentForge • 9 Specialized AI Agents
           </p>
 
           {/* Seal decoration */}

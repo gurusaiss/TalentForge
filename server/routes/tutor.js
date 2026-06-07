@@ -47,7 +47,7 @@ router.post('/chat', async (req, res) => {
       return res.status(400).json({ success: false, error: 'message is required', data: null });
     }
 
-    const systemPrompt = `You are SkillForge AI's friendly learning tutor. You help students understand technical concepts, give clear examples, and motivate learners. Be concise (2-3 sentences max unless asked for more). If the student asks for an example, a list, or detailed explanation, you may go longer — but stay focused and practical. Always be encouraging. Context: user is on page: ${context}.`;
+    const systemPrompt = `You are TalentForge's friendly learning tutor. You help students understand technical concepts, give clear examples, and motivate learners. Be concise (2-3 sentences max unless asked for more). If the student asks for an example, a list, or detailed explanation, you may go longer — but stay focused and practical. Always be encouraging. Context: user is on page: ${context}.`;
 
     // Build the full prompt including conversation history
     let prompt = '';

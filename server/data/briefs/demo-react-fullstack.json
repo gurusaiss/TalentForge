@@ -1,0 +1,16 @@
+{
+  "userId": "demo-react-fullstack",
+  "generatedAt": "2026-06-07T17:38:05.481Z",
+  "type": "daily_brief",
+  "streak": 18,
+  "completedDays": 18,
+  "avgScore": 80,
+  "lastScore": 70,
+  "nextDay": null,
+  "insight": "18-day streak! You're in the top 5% of consistent learners. Keep this momentum.",
+  "alerts": [],
+  "recommendation": {
+    "action": "continue",
+    "msg": "You're on track. Complete today's session to maintain momentum."
+  }
+}

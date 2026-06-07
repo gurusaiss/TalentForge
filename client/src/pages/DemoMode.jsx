@@ -143,7 +143,7 @@ export default function DemoMode() {
 
       // Save userId for navigation
       if (d.userId) {
-        localStorage.setItem('skillforge:userId', d.userId);
+        localStorage.setItem('talentforge:userId', d.userId);
       }
     });
 

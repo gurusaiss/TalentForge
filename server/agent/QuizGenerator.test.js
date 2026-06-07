@@ -1,4 +1,4 @@
-// Feature: skillforge-ai, Property 5: Quiz question count invariant
+// Feature: talentforge-ai, Property 5: Quiz question count invariant
 
 import { describe, it, expect, beforeAll } from 'vitest';
 import fc from 'fast-check';

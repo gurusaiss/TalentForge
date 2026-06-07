@@ -108,7 +108,7 @@ router.post('/', authenticate, requireRole('admin', 'manager'), async (req, res)
 
     // Managers can only create employees
     const assignedRole = (req.user.role === 'manager') ? 'employee' : (role || 'employee');
-    const tempPassword = password || `SkillForge@${Math.random().toString(36).slice(2, 8)}`;
+    const tempPassword = password || `TalentForge@${Math.random().toString(36).slice(2, 8)}`;
     const passwordHash = await AuthService.hashPassword(tempPassword);
 
     const user = await UserStore.createUser({

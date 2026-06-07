@@ -390,7 +390,7 @@ export default function CareerTwin() {
   }, [user, moduleId]);
 
   useEffect(() => {
-    const uid = localStorage.getItem('skillforge:userId');
+    const uid = localStorage.getItem('talentforge:userId');
     if (!uid) { setError('No active session. Complete goal setup first.'); setLoading(false); return; }
 
     const token = localStorage.getItem('auth_token');
@@ -545,7 +545,7 @@ export default function CareerTwin() {
 
         {/* Employee-only: Learning DNA + Velocity */}
         {user?.role === 'employee' && (() => {
-          const userId = localStorage.getItem('skillforge:userId');
+          const userId = localStorage.getItem('talentforge:userId');
           const stored = userId ? JSON.parse(localStorage.getItem(`sf_data_${userId}`) || '{}') : {};
           const localSessions = stored.sessions || [];
           return (

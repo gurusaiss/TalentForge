@@ -547,7 +547,7 @@ export default function SuperAdminDashboard() {
               <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-violet-600/20 border border-violet-500/20 text-xl">🌐</div>
               <div>
                 <h1 className="text-2xl font-bold text-white">Super Admin Dashboard</h1>
-                <p className="text-violet-400 text-sm font-semibold">SkillForge AI</p>
+                <p className="text-violet-400 text-sm font-semibold">TalentForge</p>
               </div>
             </div>
             <p className="text-slate-400 text-sm mt-1 ml-[52px]">Platform-wide overview — manage all companies and admins</p>

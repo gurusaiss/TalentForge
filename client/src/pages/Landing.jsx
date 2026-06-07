@@ -226,7 +226,7 @@ function InfoModal({ info, onClose }) {
           </div>
           <div className="min-w-0 flex-1">
             <p className="text-xs font-black uppercase tracking-widest mb-0.5" style={{ color: info.color }}>
-              SkillForge System
+              TalentForge System
             </p>
             <h3 className="text-base font-black text-slate-100 leading-tight">{info.title}</h3>
           </div>
@@ -392,7 +392,7 @@ const HOW_STEPS = [
     num: 1,
     icon: '🎯',
     title: 'Set Your Goal',
-    desc: 'Tell SkillForge what you want to learn. Our AI agents analyze your goal and instantly build a personalized skill tree.',
+    desc: 'Tell TalentForge what you want to learn. Our AI agents analyze your goal and instantly build a personalized skill tree.',
     color: '#6366F1',
   },
   {
@@ -480,13 +480,13 @@ function ComparisonTable() {
     >
       <p className="text-sm text-slate-600 mb-2 uppercase tracking-widest text-center">Why choose us</p>
       <h2 className="text-2xl md:text-3xl font-black text-white text-center mb-8">
-        Why SkillForge Beats <span className="bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">Traditional Learning</span>
+        Why TalentForge Beats <span className="bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">Traditional Learning</span>
       </h2>
       <div className="rounded-2xl border border-slate-700/60 bg-slate-900/70 overflow-hidden backdrop-blur">
         {/* Header */}
         <div className="grid grid-cols-4 border-b border-slate-700/60">
           <div className="px-5 py-4 text-xs font-black text-slate-500 uppercase tracking-widest">Feature</div>
-          <div className="px-4 py-4 text-xs font-black text-indigo-400 uppercase tracking-widest text-center">SkillForge AI</div>
+          <div className="px-4 py-4 text-xs font-black text-indigo-400 uppercase tracking-widest text-center">TalentForge</div>
           <div className="px-4 py-4 text-xs font-black text-slate-500 uppercase tracking-widest text-center">Traditional LMS</div>
           <div className="px-4 py-4 text-xs font-black text-slate-500 uppercase tracking-widest text-center">YouTube/Courses</div>
         </div>
@@ -550,7 +550,7 @@ function Testimonials() {
     >
       <p className="text-sm text-slate-600 mb-2 uppercase tracking-widest text-center">Success stories</p>
       <h2 className="text-2xl md:text-3xl font-black text-white text-center mb-8">
-        Learners <span className="bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">Love SkillForge</span>
+        Learners <span className="bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">Love TalentForge</span>
       </h2>
       <div className="grid md:grid-cols-3 gap-5">
         {TESTIMONIALS.map(t => (
@@ -670,7 +670,7 @@ export default function Landing() {
             {/* Info header */}
             <div className="rounded-2xl border border-slate-700/60 bg-slate-900/70 p-6 backdrop-blur space-y-5">
               <div>
-                <h3 className="text-base font-black text-slate-300 uppercase tracking-widest mb-1">Why SkillForge AI</h3>
+                <h3 className="text-base font-black text-slate-300 uppercase tracking-widest mb-1">Why TalentForge</h3>
                 <p className="text-sm text-slate-500 leading-snug">The only learning platform that replaces every human instructor with structured AI — from diagnosis to certification.</p>
               </div>
               <div className="grid grid-cols-2 gap-2">
@@ -717,7 +717,7 @@ export default function Landing() {
                   <div className="w-3 h-3 rounded-full bg-green-500/70" />
                 </div>
                 <span className="text-xs text-slate-500 font-mono mx-auto">
-                  SkillForge Agent Runtime — Live
+                  TalentForge Agent Runtime — Live
                 </span>
                 <span className="flex items-center gap-1">
                   <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse" />
@@ -769,7 +769,7 @@ export default function Landing() {
           transition={{ delay: 0.5 }}
           className="mt-16 text-center"
         >
-          <p className="text-sm text-slate-600 mb-4 uppercase tracking-widest">What makes SkillForge different</p>
+          <p className="text-sm text-slate-600 mb-4 uppercase tracking-widest">What makes TalentForge different</p>
           <div className="flex flex-wrap justify-center gap-3">
             {Object.keys(TAG_INFO).map(tag => (
               <button

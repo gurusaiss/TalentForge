@@ -148,9 +148,9 @@ export const AuthProvider = ({ children }) => {
         // Store token and learning user ID in localStorage
         localStorage.setItem('auth_token', newToken);
         if (userData?.learningUUID) {
-          localStorage.setItem('skillforge:userId', userData.learningUUID);
+          localStorage.setItem('talentforge:userId', userData.learningUUID);
         } else if (userData?.userId) {
-          localStorage.setItem('skillforge:userId', userData.userId);
+          localStorage.setItem('talentforge:userId', userData.userId);
         }
         setToken(newToken);
         setUser(userData);
@@ -178,9 +178,9 @@ export const AuthProvider = ({ children }) => {
         // Store token and learning user ID in localStorage
         localStorage.setItem('auth_token', newToken);
         if (userData?.learningUUID) {
-          localStorage.setItem('skillforge:userId', userData.learningUUID);
+          localStorage.setItem('talentforge:userId', userData.learningUUID);
         } else if (userData?.userId) {
-          localStorage.setItem('skillforge:userId', userData.userId);
+          localStorage.setItem('talentforge:userId', userData.userId);
         }
         setToken(newToken);
         setUser(userData);
@@ -198,7 +198,7 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {
     // Remove auth state from localStorage
     localStorage.removeItem('auth_token');
-    localStorage.removeItem('skillforge:userId');
+    localStorage.removeItem('talentforge:userId');
     setToken(null);
     setUser(null);
     
@@ -253,9 +253,9 @@ export const AuthProvider = ({ children }) => {
   const setAuthFromToken = (newToken, userData) => {
     localStorage.setItem('auth_token', newToken);
     if (userData?.learningUUID) {
-      localStorage.setItem('skillforge:userId', userData.learningUUID);
+      localStorage.setItem('talentforge:userId', userData.learningUUID);
     } else if (userData?.userId) {
-      localStorage.setItem('skillforge:userId', userData.userId);
+      localStorage.setItem('talentforge:userId', userData.userId);
     }
     setToken(newToken);
     setUser(userData);

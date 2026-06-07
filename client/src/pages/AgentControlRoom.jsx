@@ -314,7 +314,7 @@ export default function AgentControlRoom() {
   const [agentStats, setAgentStats] = useState([]);
 
   // Load decisions from localStorage / mock
-  const userId = localStorage.getItem('skillforge:userId');
+  const userId = localStorage.getItem('talentforge:userId');
   const stored = userId ? JSON.parse(localStorage.getItem(`sf_data_${userId}`) || '{}') : {};
   const decisions = (stored.agentDecisions || MOCK_DECISIONS).slice(-15).reverse();
 

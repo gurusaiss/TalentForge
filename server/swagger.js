@@ -1,14 +1,14 @@
 /**
- * OpenAPI 3.0 specification for SkillForge AI REST API.
+ * OpenAPI 3.0 specification for TalentForge REST API.
  * Served at GET /api/docs and GET /api/docs.json
  */
 export const swaggerSpec = {
   openapi: '3.0.3',
   info: {
-    title: 'SkillForge AI API',
+    title: 'TalentForge API',
     version: '3.0.0',
     description: `
-## SkillForge AI — Autonomous Multi-Agent Learning Platform
+## TalentForge — Autonomous Multi-Agent Learning Platform
 
 A production-grade REST API powering personalized skill acquisition through **14 specialized AI agents**.
 
@@ -29,14 +29,14 @@ All protected endpoints require a \`Bearer <token>\` header obtained from \`POST
 - General: 100 req/min per IP
     `,
     contact: {
-      name: 'SkillForge AI',
-      url: 'https://github.com/gurusaiss/skillforge-ai',
+      name: 'TalentForge',
+      url: 'https://github.com/gurusaiss/talentforge-ai',
     },
     license: { name: 'MIT' },
   },
   servers: [
     { url: 'http://localhost:3001', description: 'Local development' },
-    { url: 'https://api.skillforge.ai', description: 'Production' },
+    { url: 'https://api.talentforge.ai', description: 'Production' },
   ],
   components: {
     securitySchemes: {

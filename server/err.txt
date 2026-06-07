@@ -1,0 +1,2 @@
+[EmailService] SMTP credentials not configured. Email sending will be disabled.
+[DB] Store init warning: ENOENT: no such file or directory, mkdir 'D:\D:\C\CODING\Portfolio\Projects\Skill-AI\server\data'

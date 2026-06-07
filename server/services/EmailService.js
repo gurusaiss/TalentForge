@@ -9,7 +9,7 @@ import nodemailer from 'nodemailer';
 class EmailService {
   constructor() {
     this.transporter = null;
-    this.from = process.env.SMTP_FROM || 'SkillForge AI <noreply@skillforge.ai>';
+    this.from = process.env.SMTP_FROM || 'TalentForge <noreply@talentforge.ai>';
     this.maxRetries = 3;
     this.retryDelay = 2000; // 2 seconds
     this.initializeTransporter();
@@ -108,7 +108,7 @@ class EmailService {
    * @returns {Promise<Object>} Send result
    */
   async sendOTP(email, otp, expiresInMinutes = 10) {
-    const subject = 'Verify Your Email - SkillForge AI';
+    const subject = 'Verify Your Email - TalentForge';
     
     const htmlBody = `
 <!DOCTYPE html>
@@ -130,11 +130,11 @@ class EmailService {
     </div>
     <div class="content">
       <p>Hello,</p>
-      <p>Thank you for registering with SkillForge AI! To complete your registration, please verify your email address using the code below:</p>
+      <p>Thank you for registering with TalentForge! To complete your registration, please verify your email address using the code below:</p>
       <div class="otp-code">${otp}</div>
       <p><strong>This code will expire in ${expiresInMinutes} minutes.</strong></p>
       <p>If you didn't request this code, please ignore this email.</p>
-      <p>Best regards,<br>The SkillForge AI Team</p>
+      <p>Best regards,<br>The TalentForge Team</p>
     </div>
     <div class="footer">
       <p>This is an automated message, please do not reply.</p>
@@ -145,11 +145,11 @@ class EmailService {
     `;
 
     const textBody = `
-Verify Your Email - SkillForge AI
+Verify Your Email - TalentForge
 
 Hello,
 
-Thank you for registering with SkillForge AI! To complete your registration, please verify your email address using the code below:
+Thank you for registering with TalentForge! To complete your registration, please verify your email address using the code below:
 
 Your verification code: ${otp}
 
@@ -158,7 +158,7 @@ This code will expire in ${expiresInMinutes} minutes.
 If you didn't request this code, please ignore this email.
 
 Best regards,
-The SkillForge AI Team
+The TalentForge Team
     `;
 
     return await this.sendEmail(email, subject, htmlBody, textBody);
@@ -175,7 +175,7 @@ The SkillForge AI Team
     const frontendUrl = process.env.FRONTEND_URL || 'http://localhost:5173';
     const resetLink = `${frontendUrl}/reset-password?token=${resetToken}`;
     
-    const subject = 'Reset Your Password - SkillForge AI';
+    const subject = 'Reset Your Password - TalentForge';
     
     const htmlBody = `
 <!DOCTYPE html>
@@ -197,14 +197,14 @@ The SkillForge AI Team
     </div>
     <div class="content">
       <p>Hello,</p>
-      <p>We received a request to reset your password for your SkillForge AI account. Click the button below to reset your password:</p>
+      <p>We received a request to reset your password for your TalentForge account. Click the button below to reset your password:</p>
       <div style="text-align: center;">
         <a href="${resetLink}" class="button">Reset Password</a>
       </div>
       <p><strong>This link will expire in ${expiresInMinutes} minutes.</strong></p>
       <p>If you didn't request a password reset, please ignore this email. Your password will remain unchanged.</p>
       <p>For security reasons, this link can only be used once.</p>
-      <p>Best regards,<br>The SkillForge AI Team</p>
+      <p>Best regards,<br>The TalentForge Team</p>
     </div>
     <div class="footer">
       <p>If the button doesn't work, copy and paste this link into your browser:</p>
@@ -216,11 +216,11 @@ The SkillForge AI Team
     `;
 
     const textBody = `
-Reset Your Password - SkillForge AI
+Reset Your Password - TalentForge
 
 Hello,
 
-We received a request to reset your password for your SkillForge AI account. Click the link below to reset your password:
+We received a request to reset your password for your TalentForge account. Click the link below to reset your password:
 
 ${resetLink}
 
@@ -231,7 +231,7 @@ If you didn't request a password reset, please ignore this email. Your password 
 For security reasons, this link can only be used once.
 
 Best regards,
-The SkillForge AI Team
+The TalentForge Team
     `;
 
     return await this.sendEmail(email, subject, htmlBody, textBody);
@@ -245,7 +245,7 @@ The SkillForge AI Team
    */
   async sendWelcomeEmail(email, name) {
     const frontendUrl = process.env.FRONTEND_URL || 'http://localhost:5173';
-    const subject = 'Welcome to SkillForge AI!';
+    const subject = 'Welcome to TalentForge!';
     
     const htmlBody = `
 <!DOCTYPE html>
@@ -264,11 +264,11 @@ The SkillForge AI Team
 <body>
   <div class="container">
     <div class="header">
-      <h1>Welcome to SkillForge AI!</h1>
+      <h1>Welcome to TalentForge!</h1>
     </div>
     <div class="content">
       <p>Hello ${name},</p>
-      <p>Welcome to SkillForge AI - your intelligent, adaptive learning platform powered by multi-agent AI!</p>
+      <p>Welcome to TalentForge - your intelligent, adaptive learning platform powered by multi-agent AI!</p>
       <p>Your account has been successfully created and verified. You're now ready to start your learning journey.</p>
       
       <h3>What's Next?</h3>
@@ -290,7 +290,7 @@ The SkillForge AI Team
       </div>
       
       <p>If you have any questions, feel free to reach out to our support team.</p>
-      <p>Happy learning!<br>The SkillForge AI Team</p>
+      <p>Happy learning!<br>The TalentForge Team</p>
     </div>
     <div class="footer">
       <p>This is an automated message, please do not reply.</p>
@@ -301,11 +301,11 @@ The SkillForge AI Team
     `;
 
     const textBody = `
-Welcome to SkillForge AI!
+Welcome to TalentForge!
 
 Hello ${name},
 
-Welcome to SkillForge AI - your intelligent, adaptive learning platform powered by multi-agent AI!
+Welcome to TalentForge - your intelligent, adaptive learning platform powered by multi-agent AI!
 
 Your account has been successfully created and verified. You're now ready to start your learning journey.
 
@@ -325,7 +325,7 @@ Get started: ${frontendUrl}/dashboard
 If you have any questions, feel free to reach out to our support team.
 
 Happy learning!
-The SkillForge AI Team
+The TalentForge Team
     `;
 
     return await this.sendEmail(email, subject, htmlBody, textBody);

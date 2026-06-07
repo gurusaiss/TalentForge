@@ -33,7 +33,7 @@ function downloadReportPDF(employeeData) {
 <html>
 <head>
 <meta charset="utf-8">
-<title>SkillForge Report — ${employeeName}</title>
+<title>TalentForge Report — ${employeeName}</title>
 <style>
   body { font-family: Arial, sans-serif; color: #1e293b; padding: 40px; max-width: 800px; margin: 0 auto; }
   h1 { color: #4f46e5; font-size: 24px; margin-bottom: 4px; }
@@ -55,7 +55,7 @@ function downloadReportPDF(employeeData) {
 </style>
 </head>
 <body>
-<h1>SkillForge AI — Training Report</h1>
+<h1>TalentForge — Training Report</h1>
 <div class="meta">${employeeName} · ${email} · Generated ${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</div>
 <div class="stat-grid">
   <div class="stat"><div class="stat-val">${totalAssignments}</div><div class="stat-label">Total Assignments</div></div>
@@ -76,7 +76,7 @@ ${assignments.map(a => `<tr>
 </tr>`).join('')}
 </tbody>
 </table>` : ''}
-<div class="footer">SkillForge AI · Corporate Training Platform · Confidential</div>
+<div class="footer">TalentForge · Corporate Training Platform · Confidential</div>
 </body>
 </html>`;
 
@@ -521,7 +521,7 @@ function ModuleReport({ moduleId, assignmentId, user, navigate }) {
 </style>
 </head>
 <body>
-<h1>SkillForge AI — Module Training Report</h1>
+<h1>TalentForge — Module Training Report</h1>
 <div class="meta">${mod.title || 'Module'} · ${user?.name || user?.email || ''} · Generated ${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</div>
 <div class="stat-grid">
   <div class="stat"><div class="stat-val">${asn.progress || 0}%</div><div class="stat-label">Progress</div></div>
@@ -529,7 +529,7 @@ function ModuleReport({ moduleId, assignmentId, user, navigate }) {
   <div class="stat"><div class="stat-val">${asn.status || 'assigned'}</div><div class="stat-label">Status</div></div>
 </div>
 ${asn.dueDate ? `<p>Due Date: ${new Date(asn.dueDate).toLocaleDateString()}</p>` : ''}
-<div class="footer">SkillForge AI · Corporate Training Platform · Confidential</div>
+<div class="footer">TalentForge · Corporate Training Platform · Confidential</div>
 </body>
 </html>`;
     const blob = new Blob([html], { type: 'text/html' });
@@ -639,7 +639,7 @@ ${asn.dueDate ? `<p>Due Date: ${new Date(asn.dueDate).toLocaleDateString()}</p>`
         </div>
       </div>
 
-      <div className="text-center text-xs text-slate-500">SkillForge AI · Corporate Training Platform · Confidential</div>
+      <div className="text-center text-xs text-slate-500">TalentForge · Corporate Training Platform · Confidential</div>
     </div>
   );
 }

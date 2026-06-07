@@ -1,5 +1,5 @@
-// Feature: skillforge-ai, Property 2: Domain detection always returns a valid domain
-// Feature: skillforge-ai, Property 3: Skill tree structural invariant
+// Feature: talentforge-ai, Property 2: Domain detection always returns a valid domain
+// Feature: talentforge-ai, Property 3: Skill tree structural invariant
 
 import { describe, it, expect, beforeAll } from 'vitest';
 import fc from 'fast-check';

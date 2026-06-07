@@ -102,7 +102,7 @@ app.get('/api/docs', (_req, res) => {
   res.send(`<!DOCTYPE html>
 <html>
 <head>
-  <title>SkillForge AI — API Docs</title>
+  <title>TalentForge — API Docs</title>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="https://unpkg.com/swagger-ui-dist@5/swagger-ui.css">

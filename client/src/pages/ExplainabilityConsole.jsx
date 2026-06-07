@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const userId = localStorage.getItem('skillforge:userId');
+const userId = localStorage.getItem('talentforge:userId');
 
 const TYPE_META = {
   goal_analysis:     { icon: '🎯', color: '#6366F1', label: 'GoalAgent' },

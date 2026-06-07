@@ -114,7 +114,7 @@ export default function Onboarding() {
         <div className="rounded-2xl border border-slate-700/60 bg-slate-900/70 backdrop-blur p-8">
           {/* Header */}
           <div className="text-center mb-6">
-            <h2 className="text-2xl font-black text-white">Welcome to SkillForge! 👋</h2>
+            <h2 className="text-2xl font-black text-white">Welcome to TalentForge! 👋</h2>
             <p className="text-slate-400 text-sm mt-2">
               Tell us about yourself to personalize your experience
             </p>

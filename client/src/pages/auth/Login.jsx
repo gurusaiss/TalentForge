@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 
-const RATE_LIMIT_KEY = 'skillforge:login_locked_until';
+const RATE_LIMIT_KEY = 'talentforge:login_locked_until';
 const RATE_LIMIT_MS = 2 * 60 * 1000; // 2 minutes (reduced from 15)
 
 export default function Login() {

@@ -440,7 +440,7 @@ function RecentSessions({ sessions, onSessionClick }) {
 // CAREER OVERVIEW
 // ─────────────────────────────────────────────────────────────────────────────
 function CareerOverview({ goal, sessions, onProjectClick }) {
-  const profiling = (() => { try { return JSON.parse(localStorage.getItem('skillforge:profiling') || 'null'); } catch { return null; } })();
+  const profiling = (() => { try { return JSON.parse(localStorage.getItem('talentforge:profiling') || 'null'); } catch { return null; } })();
   const avgScore = sessions.length ? Math.round(sessions.reduce((s, r) => s + r.score, 0) / sessions.length) : null;
   const gapLevel = !avgScore ? 'Not assessed yet' : avgScore >= 80 ? 'Minimal — strong foundation' : avgScore >= 60 ? 'Moderate — key areas to strengthen' : 'Significant — structured practice needed';
 
@@ -594,7 +594,7 @@ export default function Dashboard() {
   }[type]);
 
   useEffect(() => {
-    const userId = localStorage.getItem('skillforge:userId');
+    const userId = localStorage.getItem('talentforge:userId');
     if (!userId) { navigate('/'); return; }
 
     // Always fetch fresh data when Dashboard mounts or location changes
@@ -613,7 +613,7 @@ export default function Dashboard() {
   const handleReport = async () => {
     setGenerating(true);
     try {
-      const userId = localStorage.getItem('skillforge:userId');
+      const userId = localStorage.getItem('talentforge:userId');
       await api.generateReport(userId);
       navigate('/report');
     } catch (e) { setError(e.message); }
@@ -852,7 +852,7 @@ export default function Dashboard() {
               stats={stats}
               userName={(() => {
                 try {
-                  const profiling = JSON.parse(localStorage.getItem('skillforge:profiling') || 'null');
+                  const profiling = JSON.parse(localStorage.getItem('talentforge:profiling') || 'null');
                   return profiling?.name || profiling?.fullName || goal?.profile?.name || 'You';
                 } catch { return 'You'; }
               })()}

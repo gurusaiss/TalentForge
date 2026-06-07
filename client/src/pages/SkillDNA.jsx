@@ -575,7 +575,7 @@ export default function SkillDNA() {
   const [memoryLoading, setMemoryLoading] = useState(false);
   const [memoryError, setMemoryError] = useState(null);
 
-  const userId = localStorage.getItem('skillforge:userId');
+  const userId = localStorage.getItem('talentforge:userId');
   const storedData = useMemo(() => {
     if (!userId) return null;
     try { return JSON.parse(localStorage.getItem(`sf_data_${userId}`) || 'null'); } catch { return null; }

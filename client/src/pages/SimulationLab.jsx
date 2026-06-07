@@ -63,7 +63,7 @@ export default function SimulationLab() {
   const searchParams = new URLSearchParams(location.search);
   const moduleId = searchParams.get('moduleId');
 
-  const userId = localStorage.getItem('skillforge:userId');
+  const userId = localStorage.getItem('talentforge:userId');
   const [skill, setSkill] = useState('');
   const [goalSkills, setGoalSkills] = useState([]);
   const [goalDomain, setGoalDomain] = useState('');
