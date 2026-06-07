@@ -5,48 +5,57 @@ import ErrorBoundary from './components/ErrorBoundary.jsx';
 import ProtectedRoute from './components/ProtectedRoute.jsx';
 import AiTutorChat from './components/AiTutorChat.jsx';
 
-const Landing              = lazy(() => import('./pages/Landing.jsx'));
-const Profiling            = lazy(() => import('./pages/Profiling.jsx'));
-const Diagnostic           = lazy(() => import('./pages/Diagnostic.jsx'));
-const Dashboard            = lazy(() => import('./pages/Dashboard.jsx'));
-const Employee             = lazy(() => import('./pages/Employee.jsx'));
-const DashboardRedirect    = lazy(() => import('./components/DashboardRedirect.jsx'));
-const Session              = lazy(() => import('./pages/Session.jsx'));
-const Report               = lazy(() => import('./pages/Report.jsx'));
-const SimulationLab        = lazy(() => import('./pages/SimulationLab.jsx'));
-const CareerTwin           = lazy(() => import('./pages/CareerTwin.jsx'));
-const ExplainabilityConsole = lazy(() => import('./pages/ExplainabilityConsole.jsx'));
-const DemoMode             = lazy(() => import('./pages/DemoMode.jsx'));
-const InterviewSimulator   = lazy(() => import('./pages/InterviewSimulator.jsx'));
+// Retry lazy imports once on chunk load failure (stale Vercel CDN cache)
+const lazyWithRetry = (fn) => lazy(() =>
+  fn().catch(() => {
+    sessionStorage.setItem('chunk_reload', '1');
+    window.location.reload();
+    return new Promise(() => {});
+  })
+);
+
+const Landing              = lazyWithRetry(() => import('./pages/Landing.jsx'));
+const Profiling            = lazyWithRetry(() => import('./pages/Profiling.jsx'));
+const Diagnostic           = lazyWithRetry(() => import('./pages/Diagnostic.jsx'));
+const Dashboard            = lazyWithRetry(() => import('./pages/Dashboard.jsx'));
+const Employee             = lazyWithRetry(() => import('./pages/Employee.jsx'));
+const DashboardRedirect    = lazyWithRetry(() => import('./components/DashboardRedirect.jsx'));
+const Session              = lazyWithRetry(() => import('./pages/Session.jsx'));
+const Report               = lazyWithRetry(() => import('./pages/Report.jsx'));
+const SimulationLab        = lazyWithRetry(() => import('./pages/SimulationLab.jsx'));
+const CareerTwin           = lazyWithRetry(() => import('./pages/CareerTwin.jsx'));
+const ExplainabilityConsole = lazyWithRetry(() => import('./pages/ExplainabilityConsole.jsx'));
+const DemoMode             = lazyWithRetry(() => import('./pages/DemoMode.jsx'));
+const InterviewSimulator   = lazyWithRetry(() => import('./pages/InterviewSimulator.jsx'));
 
 // Auth Pages
-const Login                = lazy(() => import('./pages/auth/Login.jsx'));
-const Register             = lazy(() => import('./pages/auth/Register.jsx'));
-const Onboarding           = lazy(() => import('./pages/auth/Onboarding.jsx'));
-const VerifyOTP            = lazy(() => import('./pages/auth/VerifyOTP.jsx'));
-const ForgotPassword       = lazy(() => import('./pages/auth/ForgotPassword.jsx'));
-const ResetPassword        = lazy(() => import('./pages/auth/ResetPassword.jsx'));
-const OAuthCallback        = lazy(() => import('./pages/auth/OAuthCallback.jsx'));
+const Login                = lazyWithRetry(() => import('./pages/auth/Login.jsx'));
+const Register             = lazyWithRetry(() => import('./pages/auth/Register.jsx'));
+const Onboarding           = lazyWithRetry(() => import('./pages/auth/Onboarding.jsx'));
+const VerifyOTP            = lazyWithRetry(() => import('./pages/auth/VerifyOTP.jsx'));
+const ForgotPassword       = lazyWithRetry(() => import('./pages/auth/ForgotPassword.jsx'));
+const ResetPassword        = lazyWithRetry(() => import('./pages/auth/ResetPassword.jsx'));
+const OAuthCallback        = lazyWithRetry(() => import('./pages/auth/OAuthCallback.jsx'));
 
 // Super Admin Pages
-const SuperAdminDashboard  = lazy(() => import('./pages/superadmin/SuperAdminDashboard.jsx'));
-const AdminManagement      = lazy(() => import('./pages/superadmin/AdminManagement.jsx'));
+const SuperAdminDashboard  = lazyWithRetry(() => import('./pages/superadmin/SuperAdminDashboard.jsx'));
+const AdminManagement      = lazyWithRetry(() => import('./pages/superadmin/AdminManagement.jsx'));
 
 // Profile & Admin Pages
-const Profile              = lazy(() => import('./pages/Profile.jsx'));
-const UserManagement       = lazy(() => import('./pages/admin/UserManagement.jsx'));
-const AdminDashboard       = lazy(() => import('./pages/admin/AdminDashboard.jsx'));
-const ManagerDashboard     = lazy(() => import('./pages/manager/ManagerDashboard.jsx'));
-const AssessmentManagement = lazy(() => import('./pages/AssessmentManagement.jsx'));
-const Assessment           = lazy(() => import('./pages/Assessment.jsx'));
-const ModuleManagement     = lazy(() => import('./pages/admin/ModuleManagement.jsx'));
-const AssignmentManagement = lazy(() => import('./pages/admin/AssignmentManagement.jsx'));
-const Settings             = lazy(() => import('./pages/admin/Settings.jsx'));
-const ModuleStart          = lazy(() => import('./pages/ModuleStart.jsx'));
-const ModuleDashboard      = lazy(() => import('./pages/ModuleDashboard.jsx'));
-const ModuleSession        = lazy(() => import('./pages/ModuleSession.jsx'));
-const Certificate          = lazy(() => import('./pages/Certificate.jsx'));
-const AgentSwarmDemo       = lazy(() => import('./pages/AgentSwarmDemoPage.jsx'));
+const Profile              = lazyWithRetry(() => import('./pages/Profile.jsx'));
+const UserManagement       = lazyWithRetry(() => import('./pages/admin/UserManagement.jsx'));
+const AdminDashboard       = lazyWithRetry(() => import('./pages/admin/AdminDashboard.jsx'));
+const ManagerDashboard     = lazyWithRetry(() => import('./pages/manager/ManagerDashboard.jsx'));
+const AssessmentManagement = lazyWithRetry(() => import('./pages/AssessmentManagement.jsx'));
+const Assessment           = lazyWithRetry(() => import('./pages/Assessment.jsx'));
+const ModuleManagement     = lazyWithRetry(() => import('./pages/admin/ModuleManagement.jsx'));
+const AssignmentManagement = lazyWithRetry(() => import('./pages/admin/AssignmentManagement.jsx'));
+const Settings             = lazyWithRetry(() => import('./pages/admin/Settings.jsx'));
+const ModuleStart          = lazyWithRetry(() => import('./pages/ModuleStart.jsx'));
+const ModuleDashboard      = lazyWithRetry(() => import('./pages/ModuleDashboard.jsx'));
+const ModuleSession        = lazyWithRetry(() => import('./pages/ModuleSession.jsx'));
+const Certificate          = lazyWithRetry(() => import('./pages/Certificate.jsx'));
+const AgentSwarmDemo       = lazyWithRetry(() => import('./pages/AgentSwarmDemoPage.jsx'));
 
 const Loader = () => (
   <div className="mx-auto max-w-4xl px-6 py-14 text-slate-400 text-center">
