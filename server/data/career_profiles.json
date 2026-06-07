@@ -1,0 +1,156 @@
+{
+  "auth_user_003": {
+    "userId": "auth_user_003",
+    "userName": "Alex Chen",
+    "jobRole": "Software Engineer",
+    "learningDNA": "Deep Diver",
+    "learningDNADescription": "Detail-focused and mastery-oriented — Alex digs deep into topics before moving on",
+    "careerReadinessScore": 72,
+    "velocityTrend": "accelerating",
+    "topStrengths": [
+      "React Development",
+      "Node.js APIs",
+      "Database Design"
+    ],
+    "careerInsight": "Alex shows strong foundational skills in React and Node.js. Cloud architecture and CI/CD are the priority development areas that will unlock the next career level. With focused effort over 4 weeks, a senior-level readiness score of 85+ is achievable.",
+    "nextMilestone": "Senior Software Engineer",
+    "timelineWeeks": 16,
+    "marketDemandScore": 89,
+    "skillsRadar": [
+      {
+        "skill": "React",
+        "current": 82,
+        "target": 90
+      },
+      {
+        "skill": "Node.js",
+        "current": 78,
+        "target": 88
+      },
+      {
+        "skill": "System Design",
+        "current": 60,
+        "target": 80
+      },
+      {
+        "skill": "Cloud/K8s",
+        "current": 45,
+        "target": 80
+      },
+      {
+        "skill": "CI/CD",
+        "current": 50,
+        "target": 85
+      },
+      {
+        "skill": "Databases",
+        "current": 65,
+        "target": 85
+      }
+    ],
+    "velocityHistory": [
+      {
+        "date": "2025-10",
+        "score": 55
+      },
+      {
+        "date": "2025-11",
+        "score": 60
+      },
+      {
+        "date": "2025-12",
+        "score": 58
+      },
+      {
+        "date": "2026-01",
+        "score": 65
+      },
+      {
+        "date": "2026-02",
+        "score": 68
+      },
+      {
+        "date": "2026-03",
+        "score": 72
+      }
+    ],
+    "generatedAt": "2026-06-04T17:34:48.576Z"
+  },
+  "auth_user_004": {
+    "userId": "auth_user_004",
+    "userName": "Priya Sharma",
+    "jobRole": "Product Manager",
+    "learningDNA": "Eagle",
+    "learningDNADescription": "Big-picture thinker who quickly connects concepts and sees strategic patterns",
+    "careerReadinessScore": 81,
+    "velocityTrend": "steady",
+    "topStrengths": [
+      "Product Strategy",
+      "Agile/Scrum",
+      "Stakeholder Communication"
+    ],
+    "careerInsight": "Priya demonstrates exceptional strategic and communication skills. The data analysis gap is the key unlock — strengthening SQL and A/B testing rigor will elevate Priya from strong PM to data-driven product leader. Senior PM readiness is 6-8 weeks away.",
+    "nextMilestone": "Senior Product Manager",
+    "timelineWeeks": 8,
+    "marketDemandScore": 84,
+    "skillsRadar": [
+      {
+        "skill": "Strategy",
+        "current": 90,
+        "target": 95
+      },
+      {
+        "skill": "Agile",
+        "current": 85,
+        "target": 90
+      },
+      {
+        "skill": "User Research",
+        "current": 82,
+        "target": 88
+      },
+      {
+        "skill": "Prioritization",
+        "current": 75,
+        "target": 85
+      },
+      {
+        "skill": "Data Analysis",
+        "current": 55,
+        "target": 80
+      },
+      {
+        "skill": "A/B Testing",
+        "current": 48,
+        "target": 78
+      }
+    ],
+    "velocityHistory": [
+      {
+        "date": "2025-10",
+        "score": 68
+      },
+      {
+        "date": "2025-11",
+        "score": 72
+      },
+      {
+        "date": "2025-12",
+        "score": 75
+      },
+      {
+        "date": "2026-01",
+        "score": 77
+      },
+      {
+        "date": "2026-02",
+        "score": 79
+      },
+      {
+        "date": "2026-03",
+        "score": 81
+      }
+    ],
+    "generatedAt": "2026-06-04T17:34:48.576Z"
+  }
+}

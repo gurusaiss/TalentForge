@@ -1,0 +1,290 @@
+[
+  {
+    "id": "ab37e51c-e0bf-4a2d-a8b9-a8d06a396335",
+    "title": "Cloud Architecture & CI/CD Mastery",
+    "description": "Targeted learning module to close identified skill gaps in Cloud Architecture and CI/CD pipelines for Alex Chen.",
+    "targetUserId": "auth_user_003",
+    "targetUserName": "Alex Chen",
+    "targetJobRole": "Software Engineer",
+    "assessmentId": "74a96bca-2e99-42ef-bb5d-910721ce4d7f",
+    "gapAreas": [
+      "CI/CD",
+      "Cloud Architecture"
+    ],
+    "difficulty": "intermediate",
+    "estimatedWeeks": 4,
+    "status": "approved",
+    "approvedBy": "auth_user_002",
+    "approvedAt": "2026-06-04T17:32:43.805Z",
+    "createdAt": "2026-06-04T17:32:43.805Z",
+    "sessions": [
+      {
+        "id": 1,
+        "title": "Cloud Architecture Fundamentals",
+        "objective": "Understand core cloud patterns: CAP theorem, distributed systems, scalability strategies",
+        "keyPoints": [
+          "CAP theorem and trade-offs in distributed systems",
+          "Horizontal vs vertical scaling strategies",
+          "Cloud-native design patterns: CQRS, Event Sourcing, Saga",
+          "Choosing between consistency and availability"
+        ],
+        "practiceTask": "Design a distributed system architecture for a ride-sharing app — choose your CAP trade-offs and justify them",
+        "durationMinutes": 75
+      },
+      {
+        "id": 2,
+        "title": "Kubernetes Deep Dive",
+        "objective": "Master Kubernetes workload management: Deployments, StatefulSets, Services, and Ingress",
+        "keyPoints": [
+          "Deployments vs StatefulSets — when to use each",
+          "Pod scheduling, resource limits, and QoS classes",
+          "Service types: ClusterIP, NodePort, LoadBalancer",
+          "Persistent Volumes and StorageClasses"
+        ],
+        "practiceTask": "Deploy a 3-tier application (frontend, API, database) on a local Kubernetes cluster using minikube",
+        "durationMinutes": 90
+      },
+      {
+        "id": 3,
+        "title": "CI/CD Pipeline Engineering",
+        "objective": "Build production-grade CI/CD pipelines with GitHub Actions and Docker",
+        "keyPoints": [
+          "GitHub Actions workflow anatomy",
+          "Docker multi-stage builds for efficiency",
+          "Canary and blue-green deployment strategies",
+          "Rollback automation and health checks"
+        ],
+        "practiceTask": "Build a complete GitHub Actions pipeline: lint → test → build Docker image → push to registry → deploy with canary strategy",
+        "durationMinutes": 90
+      },
+      {
+        "id": 4,
+        "title": "Database Optimization & Read Replicas",
+        "objective": "Master PostgreSQL performance: indexing, read replicas, query optimization",
+        "keyPoints": [
+          "Index types: B-tree, Hash, GiST, partial indexes",
+          "Read replica setup and routing strategies",
+          "EXPLAIN ANALYZE — reading query plans",
+          "Connection pooling with PgBouncer"
+        ],
+        "practiceTask": "Optimize a slow-running PostgreSQL query from 3s to under 100ms using proper indexing and query restructuring",
+        "durationMinutes": 60
+      }
+    ],
+    "learningOutcomes": [
+      "Design distributed systems with confident CAP trade-off decisions",
+      "Deploy and manage containerized applications on Kubernetes",
+      "Build automated CI/CD pipelines with canary deployments",
+      "Optimize database performance using indexing and read replicas"
+    ]
+  },
+  {
+    "id": "bc6fa27e-11ef-4a71-a255-0d47912626c5",
+    "title": "Data-Driven Product Management",
+    "description": "Targeted module to strengthen data analysis, A/B testing, and statistical thinking for Priya Sharma.",
+    "targetUserId": "auth_user_004",
+    "targetUserName": "Priya Sharma",
+    "targetJobRole": "Product Manager",
+    "assessmentId": "52f92ec6-fb48-4816-ab19-16f8a7c43513",
+    "gapAreas": [
+      "Prioritization",
+      "Data Analysis"
+    ],
+    "difficulty": "intermediate",
+    "estimatedWeeks": 3,
+    "status": "approved",
+    "approvedBy": "auth_user_002",
+    "approvedAt": "2026-06-04T17:32:43.805Z",
+    "createdAt": "2026-06-04T17:32:43.805Z",
+    "sessions": [
+      {
+        "id": 1,
+        "title": "Statistical Thinking for Product Managers",
+        "objective": "Understand statistical concepts that drive good product decisions",
+        "keyPoints": [
+          "Statistical significance: what p < 0.05 actually means",
+          "Sample size calculation — avoiding underpowered tests",
+          "Type I and Type II errors in A/B testing",
+          "Confidence intervals vs p-values"
+        ],
+        "practiceTask": "Audit 3 A/B tests from your backlog — calculate minimum sample sizes and check if they were statistically valid",
+        "durationMinutes": 60
+      },
+      {
+        "id": 2,
+        "title": "A/B Testing in Practice",
+        "objective": "Run rigorous A/B experiments from hypothesis to ship decision",
+        "keyPoints": [
+          "Forming falsifiable hypotheses",
+          "Selecting the right primary metric",
+          "Novelty effects and how to account for them",
+          "When to stop a test early — and when not to"
+        ],
+        "practiceTask": "Design a complete A/B test plan for a checkout flow change: hypothesis, metrics, sample size, duration, success criteria",
+        "durationMinutes": 75
+      },
+      {
+        "id": 3,
+        "title": "SQL for Product Analytics",
+        "objective": "Write SQL queries to independently answer product questions without waiting for data team",
+        "keyPoints": [
+          "Funnel analysis with window functions",
+          "Cohort retention queries",
+          "Calculating DAU/MAU/WAU",
+          "Revenue metrics: MRR, ARR, LTV, churn rate"
+        ],
+        "practiceTask": "Write 5 SQL queries that answer: retention by cohort, activation funnel, feature adoption rate, NPS correlation, and revenue churn",
+        "durationMinutes": 90
+      }
+    ],
+    "learningOutcomes": [
+      "Design and interpret A/B tests with statistical rigor",
+      "Write complex SQL queries to independently extract product insights",
+      "Apply statistical thinking to product decisions with confidence"
+    ]
+  },
+  {
+    "id": "d5f931b5-123c-4339-9b04-7dd01b6a6e4e",
+    "title": "Cloud Architecture & CI/CD Mastery",
+    "description": "Targeted learning module to close identified skill gaps in Cloud Architecture and CI/CD pipelines for Alex Chen.",
+    "targetUserId": "auth_user_003",
+    "targetUserName": "Alex Chen",
+    "targetJobRole": "Software Engineer",
+    "assessmentId": "df389ac7-306d-4eaa-bb63-39f9d1b6af95",
+    "gapAreas": [
+      "CI/CD",
+      "Cloud Architecture"
+    ],
+    "difficulty": "intermediate",
+    "estimatedWeeks": 4,
+    "status": "approved",
+    "approvedBy": "auth_user_002",
+    "approvedAt": "2026-06-04T17:34:48.576Z",
+    "createdAt": "2026-06-04T17:34:48.576Z",
+    "sessions": [
+      {
+        "id": 1,
+        "title": "Cloud Architecture Fundamentals",
+        "objective": "Understand core cloud patterns: CAP theorem, distributed systems, scalability strategies",
+        "keyPoints": [
+          "CAP theorem and trade-offs in distributed systems",
+          "Horizontal vs vertical scaling strategies",
+          "Cloud-native design patterns: CQRS, Event Sourcing, Saga",
+          "Choosing between consistency and availability"
+        ],
+        "practiceTask": "Design a distributed system architecture for a ride-sharing app — choose your CAP trade-offs and justify them",
+        "durationMinutes": 75
+      },
+      {
+        "id": 2,
+        "title": "Kubernetes Deep Dive",
+        "objective": "Master Kubernetes workload management: Deployments, StatefulSets, Services, and Ingress",
+        "keyPoints": [
+          "Deployments vs StatefulSets — when to use each",
+          "Pod scheduling, resource limits, and QoS classes",
+          "Service types: ClusterIP, NodePort, LoadBalancer",
+          "Persistent Volumes and StorageClasses"
+        ],
+        "practiceTask": "Deploy a 3-tier application (frontend, API, database) on a local Kubernetes cluster using minikube",
+        "durationMinutes": 90
+      },
+      {
+        "id": 3,
+        "title": "CI/CD Pipeline Engineering",
+        "objective": "Build production-grade CI/CD pipelines with GitHub Actions and Docker",
+        "keyPoints": [
+          "GitHub Actions workflow anatomy",
+          "Docker multi-stage builds for efficiency",
+          "Canary and blue-green deployment strategies",
+          "Rollback automation and health checks"
+        ],
+        "practiceTask": "Build a complete GitHub Actions pipeline: lint → test → build Docker image → push to registry → deploy with canary strategy",
+        "durationMinutes": 90
+      },
+      {
+        "id": 4,
+        "title": "Database Optimization & Read Replicas",
+        "objective": "Master PostgreSQL performance: indexing, read replicas, query optimization",
+        "keyPoints": [
+          "Index types: B-tree, Hash, GiST, partial indexes",
+          "Read replica setup and routing strategies",
+          "EXPLAIN ANALYZE — reading query plans",
+          "Connection pooling with PgBouncer"
+        ],
+        "practiceTask": "Optimize a slow-running PostgreSQL query from 3s to under 100ms using proper indexing and query restructuring",
+        "durationMinutes": 60
+      }
+    ],
+    "learningOutcomes": [
+      "Design distributed systems with confident CAP trade-off decisions",
+      "Deploy and manage containerized applications on Kubernetes",
+      "Build automated CI/CD pipelines with canary deployments",
+      "Optimize database performance using indexing and read replicas"
+    ]
+  },
+  {
+    "id": "85992aa7-48ce-47af-bb1a-db919e698ba1",
+    "title": "Data-Driven Product Management",
+    "description": "Targeted module to strengthen data analysis, A/B testing, and statistical thinking for Priya Sharma.",
+    "targetUserId": "auth_user_004",
+    "targetUserName": "Priya Sharma",
+    "targetJobRole": "Product Manager",
+    "assessmentId": "cb937d57-5381-4f87-9ead-ef25df0833ee",
+    "gapAreas": [
+      "Prioritization",
+      "Data Analysis"
+    ],
+    "difficulty": "intermediate",
+    "estimatedWeeks": 3,
+    "status": "approved",
+    "approvedBy": "auth_user_002",
+    "approvedAt": "2026-06-04T17:34:48.576Z",
+    "createdAt": "2026-06-04T17:34:48.576Z",
+    "sessions": [
+      {
+        "id": 1,
+        "title": "Statistical Thinking for Product Managers",
+        "objective": "Understand statistical concepts that drive good product decisions",
+        "keyPoints": [
+          "Statistical significance: what p < 0.05 actually means",
+          "Sample size calculation — avoiding underpowered tests",
+          "Type I and Type II errors in A/B testing",
+          "Confidence intervals vs p-values"
+        ],
+        "practiceTask": "Audit 3 A/B tests from your backlog — calculate minimum sample sizes and check if they were statistically valid",
+        "durationMinutes": 60
+      },
+      {
+        "id": 2,
+        "title": "A/B Testing in Practice",
+        "objective": "Run rigorous A/B experiments from hypothesis to ship decision",
+        "keyPoints": [
+          "Forming falsifiable hypotheses",
+          "Selecting the right primary metric",
+          "Novelty effects and how to account for them",
+          "When to stop a test early — and when not to"
+        ],
+        "practiceTask": "Design a complete A/B test plan for a checkout flow change: hypothesis, metrics, sample size, duration, success criteria",
+        "durationMinutes": 75
+      },
+      {
+        "id": 3,
+        "title": "SQL for Product Analytics",
+        "objective": "Write SQL queries to independently answer product questions without waiting for data team",
+        "keyPoints": [
+          "Funnel analysis with window functions",
+          "Cohort retention queries",
+          "Calculating DAU/MAU/WAU",
+          "Revenue metrics: MRR, ARR, LTV, churn rate"
+        ],
+        "practiceTask": "Write 5 SQL queries that answer: retention by cohort, activation funnel, feature adoption rate, NPS correlation, and revenue churn",
+        "durationMinutes": 90
+      }
+    ],
+    "learningOutcomes": [
+      "Design and interpret A/B tests with statistical rigor",
+      "Write complex SQL queries to independently extract product insights",
+      "Apply statistical thinking to product decisions with confidence"
+    ]
+  }
+]

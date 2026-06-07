@@ -1,0 +1,27 @@
+{
+  "logs": [
+    {
+      "logId": "log_000001",
+      "eventType": "login_success",
+      "userId": "auth_user_001",
+      "timestamp": "2026-06-07T17:37:18.781Z",
+      "metadata": {
+        "email": "superadmin@talentforge.ai",
+        "ipAddress": "::1",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+      }
+    },
+    {
+      "logId": "log_000002",
+      "eventType": "login_success",
+      "userId": "auth_user_002",
+      "timestamp": "2026-06-07T17:37:51.936Z",
+      "metadata": {
+        "email": "admin@demo.com",
+        "ipAddress": "::1",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+      }
+    }
+  ],
+  "nextLogId": 3
+}

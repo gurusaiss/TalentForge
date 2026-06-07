@@ -31,8 +31,17 @@ yarn-error.log*
 .DS_Store
 Thumbs.db
 
-# Data files (session data — only keep demo files)
+# Data files — commit seed/demo data, exclude private session files
 server/data/*.json
+!server/data/users.json
+!server/data/assessments.json
+!server/data/companies.json
+!server/data/career_profiles.json
+!server/data/module_assignments.json
+!server/data/pending_modules.json
+!server/data/assessment_submissions.json
+!server/data/assessment_reports.json
+!server/data/audit.json
 !server/data/demo_skillforge_2024.json
 !server/data/demo-react-fullstack.json
 

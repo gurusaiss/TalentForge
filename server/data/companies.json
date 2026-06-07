@@ -1,0 +1,32 @@
+[
+  {
+    "id": "company_demo_01",
+    "name": "Acme Corp",
+    "adminEmail": "admin@demo.com",
+    "adminName": "Sarah Johnson",
+    "employeeCount": 3,
+    "plan": "enterprise",
+    "status": "active",
+    "createdAt": "2026-06-04T17:34:48.576Z"
+  },
+  {
+    "id": "company_demo_02",
+    "name": "TechVentures Inc",
+    "adminEmail": "admin@techventures.com",
+    "adminName": "Michael Torres",
+    "employeeCount": 47,
+    "plan": "business",
+    "status": "active",
+    "createdAt": "2026-06-04T17:34:48.576Z"
+  },
+  {
+    "id": "company_demo_03",
+    "name": "GlobalRetail Ltd",
+    "adminEmail": "admin@globalretail.com",
+    "adminName": "Emma Wilson",
+    "employeeCount": 124,
+    "plan": "enterprise",
+    "status": "active",
+    "createdAt": "2026-06-04T17:34:48.576Z"
+  }
+]
