@@ -7,7 +7,7 @@
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 
-const BASE_URL = import.meta.env.PROD ? '' : 'http://localhost:3001';
+const BASE_URL = import.meta.env.VITE_API_URL || (import.meta.env.PROD ? '' : 'http://localhost:3001');
 
 const AGENTS = [
   { id: 1, name: 'JD Analyzer Agent',         icon: '🔍', color: '#6366F1', role: 'Job Description Intelligence Specialist' },

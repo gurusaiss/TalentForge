@@ -30,9 +30,8 @@ export const useAuth = () => {
 
 // Determine API base URL based on environment
 const getApiBaseUrl = () => {
-  if (import.meta.env.PROD) {
-    return '';
-  }
+  if (import.meta.env.VITE_API_URL) return import.meta.env.VITE_API_URL;
+  if (import.meta.env.PROD) return '';
   return 'http://localhost:3001';
 };
 
