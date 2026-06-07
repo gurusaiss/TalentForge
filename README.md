@@ -127,10 +127,11 @@ cd client && npm run dev
 | Role | Name | Email | Password | Access |
 |------|------|-------|----------|--------|
 | **Super Admin** | Super Admin | superadmin@talentforge.ai | Admin@123 | Full platform — all companies, all users, billing, settings |
-| **Company Admin** | Sarah Johnson | admin@demo.com | Admin@123 | Acme Corp — assessments, modules, employees, reports |
-| **Employee 1** | Alex Chen | alex@demo.com | Employee@123 | Software Engineer — has assessment + learning path + CareerTwin |
-| **Employee 2** | Priya Sharma | priya@demo.com | Employee@123 | Product Manager — has assessment + learning path + CareerTwin |
-| **Employee 3** | James Okafor | james@demo.com | Employee@123 | Data Analyst — assigned modules, no assessment yet |
+| **Company Admin** | Sarah Johnson | admin@demo.com | Admin@123 | Acme Corp — create assessments, manage employees, view reports, trigger Agent Swarm |
+| **Manager** | David Kim | manager@demo.com | Manager@123 | Engineering Manager — view team progress, employee assessments, module assignments |
+| **Employee 1** | Alex Chen | alex@demo.com | Employee@123 | Software Engineer — assessment done, learning path + CareerTwin active |
+| **Employee 2** | Priya Sharma | priya@demo.com | Employee@123 | Product Manager — assessment done, learning path + CareerTwin active |
+| **Employee 3** | James Okafor | james@demo.com | Employee@123 | Data Analyst — modules assigned, no assessment yet |
 
 > **Agent Swarm Demo** — no login needed: `/agent-swarm`
 

@@ -1,5 +1,5 @@
 {
-  "nextUserId": 6,
+  "nextUserId": 7,
   "users": [
     {
       "userId": "auth_user_001",
@@ -84,7 +84,23 @@
       "jobRole": "Data Analyst",
       "department": "Analytics",
       "jobDescription": "Data Analyst — Business Intelligence\nJoin our data team to transform raw data into actionable business insights.\n\nResponsibilities:\n• Analyze large datasets to identify trends and business opportunities\n• Build and maintain dashboards and reports using BI tools\n• Write complex SQL queries for data extraction and transformation\n• Collaborate with business stakeholders to understand analytics needs\n• Support A/B testing and experimentation programs\n• Ensure data quality and integrity across pipelines\n\nRequirements:\n• 2+ years in data analysis or business intelligence\n• Expert-level SQL (window functions, CTEs, complex joins)\n• Experience with BI tools (Tableau, Power BI, Looker, or Metabase)\n• Python or R for data analysis and visualization\n• Understanding of statistical methods and A/B testing\n• Experience with data warehouses (BigQuery, Redshift, Snowflake)",
-      "managerId": "auth_user_002",
+      "managerId": "auth_user_006",
+      "companyId": "company_demo_01",
+      "companyName": "Acme Corp",
+      "onboardingComplete": true
+    },
+    {
+      "userId": "auth_user_006",
+      "email": "manager@demo.com",
+      "passwordHash": "$2b$10$NQAgohkRd9K0d8zuZlsFRuv2St6bLmXZvp8a/DwNKk.AWZu4WaKoy",
+      "name": "David Kim",
+      "role": "manager",
+      "learningUUID": "f4a2d891-7c3e-4b56-a912-8e1f3d6c9b07",
+      "emailVerified": true,
+      "createdAt": "2026-06-07T17:32:43.417Z",
+      "updatedAt": "2026-06-07T17:32:43.417Z",
+      "jobRole": "Engineering Manager",
+      "department": "Engineering",
       "companyId": "company_demo_01",
       "companyName": "Acme Corp",
       "onboardingComplete": true
