@@ -388,7 +388,7 @@ export default function AgentControlRoom() {
             <h1 className="text-lg font-black tracking-wider bg-gradient-to-r from-indigo-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
               ⚡ AGENT CONTROL ROOM
             </h1>
-            <p className="text-xs text-slate-500 font-mono mt-0.5">SKILLFORGE AI v2.0</p>
+            <p className="text-xs text-slate-500 font-mono mt-0.5">TALENTFORGE AI v2.0</p>
           </div>
 
           {/* Center: clock */}

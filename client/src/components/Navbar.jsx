@@ -109,7 +109,7 @@ function Navbar() {
         <Link to="/" className="flex items-center gap-3">
           <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-indigo-600/20 border border-indigo-500/20 text-lg">🧠</div>
           <div>
-            <p className="font-bold text-white text-sm leading-tight tracking-wide">SKILL FORGE</p>
+            <p className="font-bold text-white text-sm leading-tight tracking-wide">TALENT FORGE</p>
             <p className="text-xs text-slate-500">Autonomous Career AI</p>
           </div>
         </Link>

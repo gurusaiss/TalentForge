@@ -91,7 +91,7 @@ export default function Certificate() {
                 className="text-xl font-black tracking-widest"
                 style={{ background: 'linear-gradient(90deg, #6366f1, #8b5cf6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}
               >
-                SKILL FORGE AI
+                TALENT FORGE AI
               </p>
               <p className="text-xs text-slate-500 tracking-widest uppercase font-semibold">Autonomous Career Intelligence</p>
             </div>

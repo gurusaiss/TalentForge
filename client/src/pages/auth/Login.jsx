@@ -160,7 +160,7 @@ export default function Login() {
           <Link to="/" className="inline-block">
             <h1 className="text-4xl font-black tracking-tight">
               <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
-                SKILL FORGE
+                TALENT FORGE
               </span>
             </h1>
           </Link>

@@ -643,7 +643,7 @@ export default function Landing() {
           {/* Brand — large & prominent */}
           <h1 className="text-7xl md:text-8xl font-black tracking-tight leading-none mb-3">
             <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
-              SKILL FORGE
+              TALENT FORGE
             </span>
           </h1>
           <p className="text-2xl md:text-3xl font-black text-slate-300 mb-5">
