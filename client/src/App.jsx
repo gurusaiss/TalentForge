@@ -46,6 +46,7 @@ const ModuleStart          = lazy(() => import('./pages/ModuleStart.jsx'));
 const ModuleDashboard      = lazy(() => import('./pages/ModuleDashboard.jsx'));
 const ModuleSession        = lazy(() => import('./pages/ModuleSession.jsx'));
 const Certificate          = lazy(() => import('./pages/Certificate.jsx'));
+const AgentSwarmDemo       = lazy(() => import('./pages/AgentSwarmDemoPage.jsx'));
 
 const Loader = () => (
   <div className="mx-auto max-w-4xl px-6 py-14 text-slate-400 text-center">
@@ -132,6 +133,7 @@ const App = () => {
                 </ProtectedRoute>
               } />
               <Route path="/demo"         element={<DemoMode />} />
+              <Route path="/agent-swarm" element={<AgentSwarmDemo />} />
               <Route path="/interview"    element={
                 <ProtectedRoute>
                   <InterviewSimulator />

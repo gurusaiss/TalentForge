@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext.jsx';
+import AgentSwarmPanel from '../components/AgentSwarmPanel.jsx';
 
 const BASE_URL = import.meta.env.PROD ? '' : 'http://localhost:3001';
 
@@ -78,6 +79,8 @@ export default function AssessmentManagement() {
 
   // Detail view
   const [viewDetail, setViewDetail] = useState(null);
+  // Agent swarm panel
+  const [swarmSessionId, setSwarmSessionId] = useState(null);
   const [viewReport, setViewReport] = useState(null);
   const [assigningModuleId, setAssigningModuleId] = useState(null);
 
@@ -194,6 +197,21 @@ export default function AssessmentManagement() {
       setAssessments(prev => [newRecord, ...prev]);
       showToast(`Assessment created for ${modal.selectedUsers.length || 'group'} employee(s)`, 'success');
       closeModal();
+
+      // Launch TalentForge Agent Swarm for first assigned employee
+      try {
+        const firstUserId = modal.selectedUsers[0];
+        const firstUser = employees.find(e => e.userId === firstUserId || e.id === firstUserId);
+        if (firstUser) {
+          const r = await fetch(`${BASE_URL}/api/talentforge/analyze-jd`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${localStorage.getItem('auth_token')}` },
+            body: JSON.stringify({ jdText: firstUser.jobDescription || '', jobRole: firstUser.jobRole || 'Professional', userId: firstUserId }),
+          });
+          const d = await r.json();
+          if (d.sessionId) setSwarmSessionId(d.sessionId);
+        }
+      } catch (_) { /* non-critical */ }
     } catch (e) {
       showToast(e.message || 'Failed to create assessment', 'error');
     } finally {
@@ -281,6 +299,16 @@ export default function AssessmentManagement() {
       {toast && <Toast message={toast.message} type={toast.type} onClose={() => setToast(null)} />}
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* TalentForge Agent Swarm Panel */}
+        {swarmSessionId && (
+          <div className="mb-8">
+            <AgentSwarmPanel
+              sessionId={swarmSessionId}
+              onComplete={() => {}}
+            />
+          </div>
+        )}
+
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
           <div>

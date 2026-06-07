@@ -1,427 +1,214 @@
-# SkillForge AI — Autonomous Multi-Agent Learning Platform
+# TalentForge — Enterprise Talent Intelligence via Agent Swarms
 
-[![CI/CD](https://github.com/gurusaiss/HACKap/actions/workflows/ci.yml/badge.svg)](https://github.com/gurusaiss/HACKap/actions)
+> **Microsoft Build AI Hackathon 2026 · Theme 5: Agent Swarms**
+>
+> Five AI agents. One job description. Complete employee development — automated end to end.
+
 [![Node.js](https://img.shields.io/badge/Node.js-20+-339933?logo=node.js&logoColor=white)](https://nodejs.org)
 [![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=white)](https://reactjs.org)
-[![Gemini](https://img.shields.io/badge/Gemini-2.0%20Flash-4285F4?logo=google&logoColor=white)](https://aistudio.google.com)
-[![Socket.io](https://img.shields.io/badge/Socket.io-Real--time-010101?logo=socket.io&logoColor=white)](https://socket.io)
-[![Supabase](https://img.shields.io/badge/Supabase-PostgreSQL-3ECF8E?logo=supabase&logoColor=white)](https://supabase.com)
-[![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?logo=docker&logoColor=white)](./Dockerfile)
-[![License](https://img.shields.io/badge/license-MIT-blue)](./LICENSE)
-
-> **A production-grade, domain-agnostic learning platform where 14 specialized AI agents collaborate to build, adapt, and optimize your personalized skill acquisition journey — with full reasoning transparency.**
+[![Gemini](https://img.shields.io/badge/Gemini-2.0_Flash-4285F4?logo=google&logoColor=white)](https://aistudio.google.com)
+[![Groq](https://img.shields.io/badge/Groq-LLaMA_3.3-F26522)](https://console.groq.com)
 
 ---
 
-## What Makes This Different
+## The Problem
 
-Most learning platforms give you a static course catalog. SkillForge AI works differently:
+Enterprise L&D is broken. Companies spend **$350 billion annually** on employee training, yet 70% of content is forgotten within 24 hours. HR teams spend 40% of their time on manual training administration. Every employee gets the same generic course — regardless of their actual skill gaps, job role, or career trajectory.
 
-1. You describe your goal in plain English — *"become an ML engineer in 90 days"*
-2. A fleet of **14 specialized AI agents** immediately get to work
-3. They **debate among themselves** (with confidence scores) before making major decisions
-4. The plan **adapts in real-time** based on your performance every 3 sessions
-5. You see **exactly why** every decision was made — no black boxes
+No existing LMS can take a job description and automatically generate a complete, personalized development journey.
 
 ---
 
-## Table of Contents
+## Our Solution
 
-- [Architecture](#architecture)
-- [The 14 AI Agents](#the-14-ai-agents)
-- [Key Features](#key-features)
-- [Tech Stack](#tech-stack)
-- [Quick Start](#quick-start)
-- [Docker](#docker)
-- [API Documentation](#api-documentation)
-- [Project Structure](#project-structure)
-- [Environment Variables](#environment-variables)
-- [Testing](#testing)
-- [Deployment](#deployment)
+TalentForge deploys a swarm of **5 specialized AI agents** that activate the moment a job description is uploaded. Each agent is a domain expert that passes enriched intelligence to the next — producing a fully personalized assessment, skill gap map, learning module, and career profile for every employee. Zero manual HR effort.
 
----
-
-## Architecture
-
-```mermaid
-flowchart TB
-    subgraph Client["React 18 Client (Vite + Tailwind)"]
-        UI[Dashboard / Session / Report]
-        WS_CLIENT[Socket.io Client\nReal-time agent events]
-        TUTOR[AI Tutor Chat]
-    end
-
-    subgraph API["Express REST API + Socket.io"]
-        ROUTER[18 Route Modules\n100+ Endpoints]
-        AUTH[JWT + RBAC\nMiddleware]
-        SWAGGER[OpenAPI 3.0\n/api/docs]
-    end
-
-    subgraph ORCHESTRATOR["SmartAgent Orchestrator"]
-        GOAL[GoalAgent\nDomain classification]
-        DECOMP[SkillDecomposer\nSkill tree generation]
-        DIAG[DiagnosticAgent\n10-question baseline]
-        PLAN[PlanBuilder\nDay-by-day curriculum]
-        EVAL[Evaluator\nSession scoring]
-        ADAPT[Adaptor\nEvery 3 sessions]
-        DEBATE[AgentDebate\nAdvocate · Critic · Analyst]
-        INTERVIEW[InterviewAgent\nMock interviews]
-        MARKET[MarketAgent\nJob market alignment]
-        SIM[SimulationAgent\nWhat-if modeling]
-        TWIN[CareerTwin\nSkill trajectory]
-        REPORT[ReportGenerator]
-        CHALLENGE[ChallengeEngine]
-        RULE[RuleBase\nFallback]
-    end
-
-    subgraph LLM["AI Layer (Hybrid Resilience)"]
-        GEMINI[Gemini 2.0 Flash\nPrimary]
-        GROQ[Groq llama-3.3-70b\nFallback]
-        KB[Rule-Based\nKnowledge Bank]
-    end
-
-    subgraph DATA["Data Layer"]
-        SUPA[Supabase PostgreSQL\nPrimary]
-        FILE[File-based JSON\nAuto-fallback]
-    end
-
-    Client <-->|REST + WebSocket| API
-    API --> ORCHESTRATOR
-    ORCHESTRATOR --> LLM
-    ORCHESTRATOR --> DATA
-    GEMINI -->|fails| GROQ
-    GROQ -->|fails| KB
-    SUPA -->|not configured| FILE
+```
+JD Upload ──► Agent 1 ──► Agent 2 ──► Agent 3 ──► Agent 4 ──► Agent 5
+              Analyze      Assess      Gap Map     Learn Path   Career Intel
+              (Groq)       (Gemini)    (Groq)      (Gemini)     (Gemini)
 ```
 
-### Adaptive Learning Loop
+A **Human-in-the-Loop approval gate** ensures admin review before any content reaches employees — responsible AI with full human oversight.
 
-```mermaid
-sequenceDiagram
-    participant U as User
-    participant A as Adaptor (every 3rd session)
-    participant D as AgentDebate
-    participant P as PlanBuilder
-
-    U->>A: Complete sessions 3, 6, 9...
-    A->>A: Analyze score trend
-    alt Score < 60% for 2+ sessions
-        A->>D: Trigger debate: "Should we insert review sessions?"
-        D->>D: Advocate votes YES (0.85 confidence)
-        D->>D: Critic votes YES (0.72 confidence)
-        D->>D: Analyst votes YES (0.91 confidence)
-        D->>P: Consensus → Insert 3 review sessions
-        P->>U: Plan updated with Socratic reviews
-    else Score > 90% for 2+ sessions
-        A->>D: Trigger debate: "Should we accelerate?"
-        D->>P: Consensus → Skip 2 sessions, advance
-        P->>U: Plan accelerated — reach goal earlier
-    end
-```
+A **Live Agent Activity Panel** streams each agent's thinking to the UI in real-time via SSE — judges see the swarm working.
 
 ---
 
-## The 14 AI Agents
+## The 5-Agent Architecture
 
-| # | Agent | Responsibility | Key Output |
-|---|-------|---------------|------------|
-| 1 | **GoalAgent** | Domain classification, intent extraction | `{ domain, difficulty, timeframe }` |
-| 2 | **SkillDecomposer** | Breaks goal → hierarchical skill tree | `SkillTree` with prerequisites |
-| 3 | **DiagnosticAgent** | Baseline quiz generation | 10 adaptive questions |
-| 4 | **PlanBuilder** | Day-by-day learning curriculum | `Session[]` spanning 21–90 days |
-| 5 | **ChallengeEngine** | Adaptive content generation | Exercises, code katas, case studies |
-| 6 | **Evaluator** | Session scoring and feedback | `score`, `feedback`, `weakAreas[]` |
-| 7 | **Adaptor** | Performance trend analysis | Triggers debate every 3 sessions |
-| 8 | **AgentDebate** | 3-agent voting (Advocate/Critic/Analyst) | `decision` + weighted `confidence` |
-| 9 | **ReportGenerator** | Progress reports with insights | PDF-ready report |
-| 10 | **InterviewAgent** | Mock interview Q&A + evaluation | Multi-dimensional score rubric |
-| 11 | **MarketAgent** | Job market alignment analysis | Skill gap vs. market demand |
-| 12 | **SimulationAgent** | What-if scenario modeling | Projected outcomes without affecting plan |
-| 13 | **CareerTwin** | Virtual skill trajectory model | Readiness %, market fit score |
-| 14 | **RuleBase** | Zero-dependency fallback | Deterministic responses when APIs down |
-
-> All agent decisions are logged with full reasoning chains in the **Explainability Console**.
+| # | Agent | LLM | Output |
+|---|-------|-----|--------|
+| 1 | **JD Analyzer Agent** — extracts competency framework | Groq LLaMA 3.3 70B | Skill map, seniority, domain |
+| 2 | **Assessment Agent** — designs personalized MCQ test | Gemini 2.0 Flash | 10 unique, role-calibrated questions |
+| 3 | **Gap Analysis Agent** — scores and maps deficits | Groq LLaMA 3.3 70B | Prioritized gap report + grade |
+| 4 | **Learning Path Agent** — creates targeted module | Gemini 2.0 Flash | Full learning module with sessions |
+| 5 | **Career Intelligence Agent** — builds career profile | Gemini 2.0 Flash | Learning DNA + career trajectory |
 
 ---
 
-## Key Features
+## Platform Features
 
-### Core Learning Engine
-- **Goal Decomposition** — any learning goal → structured skill tree in ~2 seconds via Gemini 2.0 Flash
-- **Adaptive Difficulty** — session content adjusts based on your rolling performance score
-- **Skill Drift Detection** — alerts when previously mastered skills are degrading (spaced repetition triggers)
-- **Domain-Agnostic** — works for software, data science, law, finance, music, cooking — anything
-
-### Unique Innovations
-- **Agent Debate System** — before any major plan change, 3 agents vote with weighted confidence scores; users see the full debate transcript
-- **Career Digital Twin** — virtual model of your skill trajectory aligned to real job market demand
-- **Simulation Lab** — model "what if I study 4h/day instead of 2?" without affecting your actual plan
-- **Explainability Console** — every agent decision logged with reasoning chain and confidence score
-
-### Enterprise & Security
-- **Full RBAC** — `admin` / `manager` / `employee` roles with route-level enforcement
-- **JWT Authentication** — bcrypt password hashing, secure token lifecycle
-- **OAuth Ready** — Google and GitHub OAuth stubs wired in
-- **Rate Limiting** — DDoS protection on all endpoints
-- **Audit Logging** — full action trail for enterprise compliance
-
-### Real-Time (Socket.io)
-- Live agent progress events during goal processing
-- Session completion triggers pushed to dashboard instantly
-- Notification system for skill drift alerts
+- **Multi-tenant architecture** — Super Admin manages unlimited enterprise tenants, complete data isolation
+- **Date-gated assessments** — employees cannot see assessments until the designated date
+- **Deadline enforcement** — assessments lock automatically after the deadline
+- **CareerTwin profiles** — AI-generated Learning DNA (Eagle / Deep Diver / Adaptive / Sprint Learner)
+- **Learning Velocity charts** — score progression over time (Recharts LineChart)
+- **Skills Radar chart** — visual competency gap visualization
+- **Reports dashboard** — filter by role, date, module, grade; per-employee breakdown with grade badges
+- **Approval workflow** — AI-generated modules queued for admin review before employee deployment
+- **Real-time Agent Panel** — SSE streaming shows 5 agents working live in the browser
 
 ---
 
 ## Tech Stack
 
-| Layer | Technology | Why |
-|-------|-----------|-----|
-| Frontend | React 18 + Vite | Fast HMR, code splitting, lazy loading |
-| Styling | Tailwind CSS 3 + Framer Motion | Utility-first + production-quality animations |
-| Charts | Recharts | Declarative, composable data viz |
-| Real-time | Socket.io | Bidirectional event streaming for agent updates |
-| Backend | Node.js 20 + Express 4 | Lightweight, async-first, familiar ecosystem |
-| Primary LLM | Gemini 2.0 Flash | Best cost/quality ratio for educational content |
-| Fallback LLM | Groq (llama-3.3-70b) | Free tier, sub-second latency |
-| Database | Supabase PostgreSQL | Managed Postgres with real-time subscriptions |
-| DB Fallback | File-based JSON | Zero-config; works without any DB credentials |
-| Auth | JWT + bcrypt | Stateless, scalable, industry standard |
-| API Docs | OpenAPI 3.0 + Swagger UI | Interactive docs at `/api/docs` |
-| CI/CD | GitHub Actions | Lint → test → build → deploy pipeline |
-| Container | Docker + Compose | Reproducible builds, production-ready |
-| Deployment | Vercel (frontend) + Railway/Render (API) | Zero-config PaaS |
-| Testing | Vitest | Fast unit + integration tests (28 tests, 100% pass) |
+| Layer | Technology |
+|-------|-----------|
+| Frontend | React 18, Vite, Tailwind CSS, Recharts |
+| Backend | Node.js 20, Express.js |
+| Agent Orchestration | Custom pipeline, EventEmitter + SSE streaming |
+| Primary LLM | Google Gemini 2.0 Flash |
+| Speed LLM | Groq LLaMA 3.3 70B (fast reasoning, agent chains) |
+| Database | Supabase PostgreSQL + file-based fallback |
+| Auth | JWT (jsonwebtoken) |
+| Deployment | Vercel (frontend) + Render (backend) |
 
 ---
 
-## Quick Start
+## Setup Instructions
 
 ### Prerequisites
-- Node.js 20+
-- A free [Gemini API key](https://aistudio.google.com) (optional — falls back to rule-based)
+- Node.js 18+
+- Free Gemini API key: [aistudio.google.com](https://aistudio.google.com) → Get API Key
+- Free Groq API key: [console.groq.com](https://console.groq.com) → Sign Up
 
+### 1. Clone
 ```bash
-# 1. Clone
-git clone https://github.com/gurusaiss/HACKap.git
-cd HACKap
-
-# 2. Install all workspaces
-npm install
-
-# 3. Configure environment
-cp .env.example .env
-# Edit .env — at minimum set GEMINI_API_KEY
-
-# 4. Start backend
-npm run dev:server
-
-# 5. Start frontend (new terminal)
-npm run dev:client
-
-# Open http://localhost:5173
+git clone https://github.com/gurusaiss/skill-ai.git
+cd skill-ai
 ```
 
-### Demo Accounts
-
-Seed demo accounts to explore all roles:
-
+### 2. Install dependencies
 ```bash
-npm run seed:demo
+cd server && npm install
+cd ../client && npm install
 ```
 
-| Email | Password | Role |
-|-------|----------|------|
-| `admin@skillforge.ai` | `Admin123!` | Admin |
-| `manager@skillforge.ai` | `Manager123!` | Manager |
-| `learner@skillforge.ai` | `Learner123!` | Employee |
+### 3. Environment variables
 
----
-
-## Docker
-
-```bash
-# Development (hot-reload client + server)
-docker compose --profile dev up
-
-# Production build
-docker compose up
-
-# With Redis caching layer
-docker compose --profile full up
-```
-
-The production image is a **multi-stage build** (~180MB final image):
-1. Stage 1 builds the React client
-2. Stage 2 installs production Node deps only
-3. Runs as non-root user `skillforge`
-4. Health check at `GET /api/health`
-
----
-
-## API Documentation
-
-Interactive Swagger UI is served at **`GET /api/docs`** when the server is running.
-
-```
-http://localhost:3001/api/docs
-```
-
-Raw OpenAPI JSON: `GET /api/docs.json`
-
-### Key Endpoints
-
-```
-POST /api/auth/register       Register user
-POST /api/auth/login          Login → JWT
-
-POST /api/goal                Submit goal → triggers full agent pipeline
-GET  /api/session             List user sessions
-POST /api/session/:id/complete Complete session → Evaluator + Adaptor run
-
-POST /api/interview/start     Start mock interview
-POST /api/simulation/run      Run what-if scenario (doesn't affect plan)
-POST /api/tutor/chat          Chat with AI tutor (context-aware)
-
-GET  /api/health              Server health + agent status
-GET  /api/docs                Swagger UI
-```
-
----
-
-## Project Structure
-
-```
-HACKap/
-├── .github/
-│   ├── workflows/ci.yml          # CI/CD: lint → test → build → docker → deploy
-│   └── ISSUE_TEMPLATE/           # Bug report & feature request templates
-├── client/                        # React 18 + Vite frontend
-│   ├── src/
-│   │   ├── pages/                 # 15 pages (Dashboard, Session, Interview, etc.)
-│   │   ├── components/            # 30+ reusable components
-│   │   ├── contexts/              # AuthContext (JWT state management)
-│   │   └── utils/api.js           # Axios + Bearer token injection
-│   └── Dockerfile.dev             # Dev container
-├── server/                        # Express + Socket.io backend
-│   ├── agent/                     # 14 AI agents
-│   │   ├── SmartAgent.js          # Orchestrator entry point
-│   │   ├── AgentDebate.js         # 3-agent voting system
-│   │   ├── SkillDecomposer.js     # Gemini-powered skill tree generation
-│   │   └── ...                    # 11 more specialized agents
-│   ├── routes/                    # 18 Express routers (100+ endpoints)
-│   ├── services/                  # GeminiService, GroqService, AuthService
-│   ├── db/                        # Supabase + file-based fallback store
-│   ├── knowledge/                 # 6 domains, 1000+ questions (zero-API fallback)
-│   ├── swagger.js                 # OpenAPI 3.0 spec
-│   └── index.js                   # Server entry + Socket.io setup
-├── Dockerfile                     # Multi-stage production build
-├── docker-compose.yml             # Full stack orchestration
-└── .env.example                   # Environment variable template
-```
-
----
-
-## Environment Variables
-
-```bash
-# .env (copy from .env.example)
-
-# Required for AI features (free at aistudio.google.com)
+Create `.env` in the project root:
+```env
 GEMINI_API_KEY=your_gemini_key_here
-
-# Optional: Groq fallback LLM (free at console.groq.com)
 GROQ_API_KEY=your_groq_key_here
+JWT_SECRET=any_random_secret_string
+GEMINI_MODEL=gemini-2.0-flash
 
-# Optional: Supabase (falls back to JSON files if not set)
-SUPABASE_URL=https://xyz.supabase.co
+# Optional Supabase (falls back to local files if not set)
+SUPABASE_URL=your_supabase_url
 SUPABASESERVICE_ROLE_KEY=your_service_role_key
-
-# Security
-JWT_SECRET=change-this-to-a-random-64-char-string
-
-# Server
-PORT=3001
-NODE_ENV=development
-
-# Frontend URL (for CORS)
-FRONTEND_URL=http://localhost:5173
 ```
 
-> **Zero-config mode**: The platform works without ANY API keys — it falls back to the built-in rule-based knowledge bank covering 6 domains.
-
----
-
-## Testing
-
+### 4. Run
 ```bash
-# Run all server tests (Vitest)
-npm test
+# Terminal 1 — Backend (port 3001)
+cd server && npm run dev
 
-# Watch mode
-npm run test:watch --workspace=server
-
-# Integration test suite (28 tests)
-node server/test-integration.js
+# Terminal 2 — Frontend (port 5173)
+cd client && npm run dev
 ```
 
-Test coverage includes:
-- Authentication flows (register, login, token validation, RBAC)
-- Agent unit tests (SkillDecomposer, QuizGenerator, Evaluator)
-- API endpoint integration tests
-- Knowledge bank validation (domain/question integrity)
+### 5. Access
+- **App**: http://localhost:5173
+- **Agent Swarm Demo** (no login needed): http://localhost:5173/agent-swarm
+
+### Demo credentials
+
+| Role | Email | Password |
+|------|-------|----------|
+| Super Admin | superadmin@talentforge.ai | Admin@123 |
+| Company Admin | admin@demo.com | Admin@123 |
+| Employee | employee@demo.com | Employee@123 |
 
 ---
 
-## Deployment
+## Architecture Overview
 
-### Vercel (Frontend)
-
-The `vercel.json` and `vercelignore` are preconfigured. Connect your GitHub repo to Vercel — it auto-detects the `vercel-build` script.
-
-Set these environment variables in Vercel:
 ```
-VITE_API_URL=https://your-api-domain.com
+┌─────────────────────────────────────────────────────────┐
+│            React Frontend  (Vercel)                      │
+│  Landing · Admin Dashboard · Employee Portal · Reports   │
+│  AgentSwarmPanel (SSE live) · CareerTwin · Radar Chart  │
+└────────────────────┬────────────────────────────────────┘
+                     │  REST + SSE
+┌────────────────────▼────────────────────────────────────┐
+│          Node.js / Express  (Render)                     │
+│                                                          │
+│  TalentForgeOrchestrator (EventEmitter)                  │
+│  ├── Agent 1: JD Analyzer      → Groq LLaMA 3.3         │
+│  ├── Agent 2: Assessment       → Gemini 2.0 Flash        │
+│  ├── Agent 3: Gap Analysis     → Groq LLaMA 3.3         │
+│  ├── Agent 4: Learning Path    → Gemini 2.0 Flash        │
+│  └── Agent 5: Career Intel     → Gemini 2.0 Flash        │
+│                                                          │
+│  SSE Event Bus (/api/talentforge/stream/:sessionId)      │
+│  REST Routes: assessments · modules · users · auth       │
+│               superadmin · org · notifications           │
+└────────────────────┬────────────────────────────────────┘
+                     │
+┌────────────────────▼────────────────────────────────────┐
+│       Supabase PostgreSQL  +  File-based fallback        │
+└─────────────────────────────────────────────────────────┘
 ```
-
-### Railway / Render (Backend)
-
-```bash
-# Start command
-node server/index.js
-
-# Build command (if needed)
-npm install
-```
-
-Set all `.env` variables in your platform's environment dashboard.
-
-### Self-Hosted (Docker)
-
-```bash
-docker compose up -d
-```
-
-See [DEPLOYMENT_GUIDE.md](./DEPLOYMENT_GUIDE.md) for detailed production configuration.
 
 ---
 
-## Why This Architecture Stands Out
+## AI Tools Used in Product
 
-| Design Decision | Rationale |
-|----------------|-----------|
-| **Agent Debate before adaptation** | Prevents impulsive plan changes; adds transparency; mirrors real team decision-making |
-| **Hybrid LLM resilience** | Gemini → Groq → Rule-based means the platform **never breaks** even if all APIs are down |
-| **File-based DB fallback** | Zero-config onboarding; any developer can run it locally without a database |
-| **Socket.io for agent events** | Users see real-time agent "thinking" — makes AI feel alive, not just fast |
-| **Domain-agnostic skill tree** | Single algorithm handles software engineering, music, law, medicine equally well |
-| **Explainability Console** | Every agent logs reasoning chains → auditability, trust, and debugging built-in |
+| Tool | Purpose |
+|------|---------|
+| **Google Gemini 2.0 Flash** | Assessment generation, learning module creation, career intelligence |
+| **Groq LLaMA 3.3 70B** | JD analysis, gap analysis — 10x faster inference for live demo responsiveness |
 
 ---
 
-## License
+## AI Tools Used in Development
 
-MIT — see [LICENSE](./LICENSE)
+| Tool | Purpose |
+|------|---------|
+| **Claude (Anthropic)** | Architecture design, agent orchestration, code generation |
+| **GitHub Copilot** | Code completion |
+
+> **Note on Microsoft Stack:** Per admin Mohammed Aftab's confirmation in the HackerEarth discussion tab, Microsoft Azure is not mandatory as Microsoft did not provide free credits. Free-tier alternatives are explicitly permitted.
 
 ---
 
-*Built for HackAP 2026 · Team AI4AP*
+## Team
+
+| Name | Role |
+|------|------|
+| Guru Sai Sumith | Full-stack development, AI/agent architecture, system design |
+
+---
+
+## Open Source Credits
+
+| Library | License |
+|---------|---------|
+| [React](https://react.dev) | MIT |
+| [Vite](https://vitejs.dev) | MIT |
+| [Tailwind CSS](https://tailwindcss.com) | MIT |
+| [Recharts](https://recharts.org) | MIT |
+| [Express.js](https://expressjs.com) | MIT |
+| [Socket.io](https://socket.io) | MIT |
+| [Supabase JS](https://supabase.com) | MIT |
+| [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken) | MIT |
+| [mammoth](https://github.com/mwilliamson/mammoth.js) | BSD-2 |
+| [pdf-parse](https://github.com/modesty/pdf-parse) | MIT |
+| [bcrypt](https://github.com/kelektiv/node.bcrypt.js) | MIT |
+| [multer](https://github.com/expressjs/multer) | MIT |
+| [cors](https://github.com/expressjs/cors) | MIT |
+
+---
+
+*TalentForge — Microsoft Build AI Hackathon 2026 — Theme 5: Agent Swarms*

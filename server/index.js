@@ -36,6 +36,7 @@ import notificationsRouter from './routes/notifications.js';
 import agentControlRouter from './routes/agentcontrol.js';
 import autonomousScheduler from './agent/AutonomousScheduler.js';
 import superadminRouter from './routes/superadmin.js';
+import talentforgeRouter from './routes/talentforge.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const dataPath = join(__dirname, 'data');
@@ -183,6 +184,7 @@ app.use('/api/tutor', tutorRouter);
 app.use('/api/react', reactRouter);
 app.use('/api/memory', memoryRouter);
 app.use('/api/agent-control', agentControlRouter);
+app.use('/api/talentforge', talentforgeRouter);
 
 // ── Autonomous Agent Brief routes ──────────────────────────────────────────
 app.get('/api/brief/:userId', (req, res) => {
