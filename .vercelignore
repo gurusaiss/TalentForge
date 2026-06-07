@@ -28,9 +28,7 @@ AUDIT_REPORT.md
 FIXES_APPLIED.md
 FINALS_UPGRADE.md
 
-# Session data (keep only demo files)
-server/data/*.json
-!server/data/demo*.json
+# Keep all seeded data files for demo
 
 # Build artifacts (will be regenerated)
 client/dist/

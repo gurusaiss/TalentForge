@@ -219,53 +219,43 @@ app.use((err, req, res, _next) => {
 
 const httpServer = createServer(app);
 
-// ── Socket.io — Real-time agent event streaming ───────────────────────────────
+// ── Socket.io (local dev only — not used on Vercel serverless) ───────────────
 export const io = new SocketServer(httpServer, {
-  cors: { origin: allowedOrigins.length > 2 ? allowedOrigins : '*', credentials: true },
+  cors: { origin: '*', credentials: true },
   transports: ['websocket', 'polling'],
 });
-
 io.on('connection', (socket) => {
   const userId = socket.handshake.auth?.userId;
   if (userId) socket.join(`user:${userId}`);
-
   socket.on('subscribe:session', (sessionId) => socket.join(`session:${sessionId}`));
   socket.on('subscribe:goal', (goalId) => socket.join(`goal:${goalId}`));
-
-  socket.on('disconnect', () => {
-    if (userId) socket.leave(`user:${userId}`);
-  });
+  socket.on('disconnect', () => { if (userId) socket.leave(`user:${userId}`); });
 });
-
-// Helper exported so routes can push real-time events
 export const emitToUser = (userId, event, data) => io.to(`user:${userId}`).emit(event, data);
 export const emitToSession = (sessionId, event, data) => io.to(`session:${sessionId}`).emit(event, data);
 export const emitToGoal = (goalId, event, data) => io.to(`goal:${goalId}`).emit(event, data);
 
-const server = httpServer.listen(PORT, () => {
-  // Start autonomous background agent
-  autonomousScheduler.start();
-  console.log(`
+// ── Start server (local dev) OR export for Vercel serverless ─────────────────
+if (process.env.VERCEL !== '1') {
+  httpServer.listen(PORT, () => {
+    autonomousScheduler.start();
+    console.log(`
 ╔════════════════════════════════════════╗
-║       SkillForge AI Server v3          ║
+║       TalentForge Server               ║
 ╠════════════════════════════════════════╣
-║  Port:    ${PORT}                           ║
-║  Gemini:  ${geminiEnabled ? '✅ ON  (gemini-2.0-flash)' : '❌ OFF (rule-based fallback)'}  ║
-║  WS:      ✅ Socket.io enabled          ║
-║  Docs:    http://localhost:${PORT}/api/docs ║
-║  DB:      ${process.env.SUPABASE_URL && process.env.SUPABASE_URL !== 'placeholder' ? '📦 Supabase' : '📁 File-based'}                 ║
-║  Env:     ${process.env.NODE_ENV || 'development'}                     ║
+║  Port:   ${PORT}                            ║
+║  Gemini: ${geminiEnabled ? '✅ ON ' : '❌ OFF'}                          ║
+║  Groq:   ${groqEnabled   ? '✅ ON ' : '❌ OFF'}                          ║
+║  DB:     ${process.env.SUPABASE_URL ? '📦 Supabase' : '📁 File-based'}              ║
+║  Env:    ${process.env.NODE_ENV || 'development'}                      ║
 ╚════════════════════════════════════════╝`);
-});
+  });
+}
+
+export default app;
 
 // Graceful shutdown
 process.on('SIGTERM', () => {
   console.log('\n[shutdown] SIGTERM received, closing server...');
-  server.close(() => {
-    console.log('[shutdown] Server closed');
-    process.exit(0);
-  });
+  process.exit(0);
 });
-
-export default app;
-export { server };
