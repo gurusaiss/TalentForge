@@ -636,7 +636,7 @@ export default function Landing() {
           >
             <div className="flex items-center gap-2 px-4 py-1.5 rounded-full border border-indigo-500/30 bg-indigo-500/8 text-sm font-semibold text-indigo-300">
               <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse" />
-              Autonomous AI Learning Platform · 9-Agent System
+              TalentForge · 5-Agent Swarm · Microsoft Build AI Hackathon 2026
             </div>
           </motion.div>
 
@@ -826,7 +826,7 @@ export default function Landing() {
           Sign In
         </button>
         <button
-          onClick={() => navigate('/demo')}
+          onClick={() => navigate('/agent-swarm')}
           className="h-9 px-4 rounded-xl font-semibold text-sm bg-indigo-600 text-white hover:bg-indigo-500 transition-all shadow-lg shadow-indigo-500/25"
         >
           Live Demo →

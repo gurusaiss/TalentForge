@@ -40,7 +40,7 @@ export default function AgentSwarmDemoPage() {
         {/* Architecture badges */}
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, justifyContent: 'center', marginBottom: 32 }}>
           {[
-            { label: 'CrewAI Architecture', color: '#6366F1' },
+            { label: 'Custom Agent Orchestration', color: '#6366F1' },
             { label: 'Google Gemini', color: '#10B981' },
             { label: 'Groq LLaMA 3.3', color: '#F59E0B' },
             { label: 'SSE Live Stream', color: '#06B6D4' },

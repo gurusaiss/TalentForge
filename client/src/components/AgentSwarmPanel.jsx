@@ -94,9 +94,9 @@ function AgentCard({ agent, status, messages, result }) {
           fontSize: 11, color: '#94A3B8', lineHeight: 1.5,
           maxHeight: 60, overflowY: 'auto',
         }}>
-          {messages.slice(-3).map((m, i) => (
-            <div key={i} style={{ color: i === messages.length - 1 ? '#CBD5E1' : '#64748B' }}>
-              {i === messages.length - 1 ? '▶ ' : '  '}{m}
+          {messages.slice(-10).map((m, i, arr) => (
+            <div key={i} style={{ color: i === arr.length - 1 ? '#CBD5E1' : '#64748B' }}>
+              {i === arr.length - 1 ? '▶ ' : '  '}{m}
             </div>
           ))}
         </div>
@@ -352,6 +352,7 @@ export function AgentSwarmDemo() {
   const startDemo = async () => {
     setLoading(true);
     setResult(null);
+    setSessionId(null);
     try {
       const r = await fetch(`${BASE_URL}/api/talentforge/demo`);
       const d = await r.json();
@@ -362,6 +363,8 @@ export function AgentSwarmDemo() {
       setLoading(false);
     }
   };
+
+  const reset = () => { setSessionId(null); setResult(null); };
 
   return (
     <div style={{ maxWidth: 640, margin: '0 auto' }}>
@@ -382,11 +385,39 @@ export function AgentSwarmDemo() {
               fontSize: 14, fontWeight: 600,
             }}
           >
-            {loading ? 'Starting...' : '▶ Launch Demo Pipeline'}
+            {loading ? '⏳ Starting Pipeline...' : '▶ Launch Demo Pipeline'}
           </button>
         </div>
       ) : (
-        <AgentSwarmPanel sessionId={sessionId} onComplete={setResult} />
+        <div>
+          <AgentSwarmPanel sessionId={sessionId} onComplete={setResult} />
+          {result && (
+            <div style={{ textAlign: 'center', marginTop: 16 }}>
+              <button
+                onClick={startDemo}
+                style={{
+                  padding: '10px 28px', borderRadius: 8,
+                  background: 'linear-gradient(135deg, #6366F1, #8B5CF6)',
+                  color: '#fff', border: 'none', cursor: 'pointer',
+                  fontSize: 13, fontWeight: 600, marginRight: 12,
+                }}
+              >
+                🔄 Run Again
+              </button>
+              <button
+                onClick={reset}
+                style={{
+                  padding: '10px 28px', borderRadius: 8,
+                  background: '#1E293B', color: '#94A3B8',
+                  border: '1px solid #334155', cursor: 'pointer',
+                  fontSize: 13, fontWeight: 600,
+                }}
+              >
+                ← Back
+              </button>
+            </div>
+          )}
+        </div>
       )}
     </div>
   );

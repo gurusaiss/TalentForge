@@ -414,6 +414,7 @@ export class TalentForgeOrchestrator extends EventEmitter {
     } catch (err) {
       emit('pipeline_error', `Agent pipeline error: ${err.message}`);
       this.sessions.set(id, { status: 'error', error: err.message });
+      setTimeout(() => this.sessions.delete(id), 30000);
       throw err;
     }
   }

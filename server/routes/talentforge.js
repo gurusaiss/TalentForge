@@ -129,6 +129,15 @@ router.post('/analyze-jd', authenticate, async (req, res) => {
  */
 router.get('/demo', async (req, res) => {
   try {
+    const geminiOk = !!(process.env.GEMINI_API_KEY && process.env.GEMINI_API_KEY.length > 10);
+    const groqOk   = !!(process.env.GROQ_API_KEY   && process.env.GROQ_API_KEY.length > 10);
+    if (!geminiOk || !groqOk) {
+      return res.status(503).json({
+        success: false,
+        error: 'API keys not configured. Set GEMINI_API_KEY and GROQ_API_KEY in environment variables.',
+        missing: { gemini: !geminiOk, groq: !groqOk },
+      });
+    }
     const sessionId = randomUUID();
 
     const demoJD = `Software Engineer — Full Stack
