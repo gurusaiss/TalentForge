@@ -85,8 +85,8 @@ A **Live Agent Activity Panel** streams each agent's thinking to the UI in real-
 
 ### 1. Clone
 ```bash
-git clone https://github.com/gurusaiss/skill-ai.git
-cd skill-ai
+git clone https://github.com/gurusaiss/TalentForge.git
+cd TalentForge
 ```
 
 ### 2. Install dependencies
