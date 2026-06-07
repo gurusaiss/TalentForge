@@ -6,6 +6,7 @@
     "dev": "node index.js",
     "start": "node index.js",
     "seed:demo": "node seed-demo-accounts.js",
+    "seed:hackathon": "node seed-demo-data.js",
     "test": "vitest --run",
     "test:watch": "vitest"
   },
